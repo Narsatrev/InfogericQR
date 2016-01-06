@@ -60,7 +60,14 @@ a:hover {
 	-moz-transition: background 0.2s;
 	transition: background 0.2s;
 }
-
+.grid2 li > a {
+	display: block;
+	height: 100%;
+	color: #d47868;
+	-webkit-transition: background 0.2s;
+	-moz-transition: background 0.2s;
+	transition: background 0.2s;
+}
 .icon{
 	padding:20% 0 0 0;
 	display: block;
@@ -88,7 +95,10 @@ a:hover {
 	content: "\f0f1";
 }
 .plus:before {
-	content: "\f05e";
+	content: "\f0b2";
+}
+.patients:before {
+	content: "\e908";
 }
 .cbp-ig-grid .cbp-ig-title {
 	margin: 20px 0 10px 0;
@@ -113,12 +123,16 @@ a:hover {
 	-moz-transition: margin-top 0.2s;
 	transition: margin-top 0.2s;
 }
-
+.grid2 .cbp-ig-title:before {
+	background: #d47868;
+}
 
 .cbp-ig-grid li > a:hover {
 	background: #9c4948;
 }
-
+.grid2 li > a:hover {
+	background: #d47868;
+}
 .cbp-ig-grid li > a:hover .icon {
 	-webkit-transform: translateY(10px);
 	-moz-transform: translateY(10px);

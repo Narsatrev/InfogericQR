@@ -10,16 +10,16 @@
 	<body>
 		<div class="container">
 			<div class="main">
-				<ul class="cbp-ig-grid">
+				<ul class="cbp-ig-grid grid2">
 					<li>
-						<a href="#">
+						<a href="registro_paciente.php">
 							<span class="icon plus"></span>
 							<h3 class="cbp-ig-title">Agregar Paciente</h3>
 						</a>
 					</li>
 					<li>
 						<a href="MenuDoctor.php">
-							<span class="icon doctor"></span>
+							<span class="icon patients"></span>
 							<h3 class="cbp-ig-title">Consultar Paciente</h3>
 						</a>
                     </li>
