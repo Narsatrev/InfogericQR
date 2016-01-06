@@ -1,0 +1,17 @@
+
+#big_button{
+    background-color:red;
+    color:red;
+    width:100px;
+    height:100px;
+}
+
+#take-picture{
+    position: absolute;
+    top:-10000px;
+    
+}
+
+#big_button:hover{
+    cursor: pointer;    
+}

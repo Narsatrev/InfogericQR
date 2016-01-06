@@ -1,10 +1,23 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <title>
-            QR Code Test
-        </title>
+        <meta charset="utf-8">
+        <title>Camera API</title>
+        <link rel="stylesheet" href="css/base.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="css/prueba_qr.css" type="text/css" media="screen">
+        <script src="frameworks/jquery-2.1.4.js"></script>
     </head>
+
     <body>
-            
+
+        <div class="container">
+            <div id="big_button"></div>
+            <section class="main-content">                
+                <input type="file" id="take-picture" accept="image/*">
+                <img src="about:blank" alt="" id="show-picture">
+                <p id="error"></p>
+            </section>
+        </div>
+        <script src="js/base.js"></script>
     </body>
 </html>
