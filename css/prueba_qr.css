@@ -15,3 +15,7 @@
 #big_button:hover{
     cursor: pointer;    
 }
+
+#canvas_qr{
+  border:solid black 1px;
+}

@@ -2,47 +2,30 @@ $("#big_button").click(function(){
    $("#take-picture").click();
 });
 
+window.upload = function(data_forma) {
 
-(function () {
-    var takePicture = document.querySelector("#take-picture"),
-        showPicture = document.querySelector("#show-picture");
+var canvas=document.getElementById("canvas_qr");
+var ctx=canvas.getContext("2d");
 
-    if (takePicture && showPicture) {
-        // Set events
-        takePicture.onchange = function (event) {
-            // Get a reference to the taken picture or chosen file
-            var files = event.target.files,
-                file;
-            if (files && files.length > 0) {
-                file = files[0];
-                try {
-                    // Create ObjectURL
-                    var imgURL = window.URL.createObjectURL(file);
+var imagen = new Image;
+imagen.src = URL.createObjectURL(data_forma);
 
-                    // Set img src to ObjectURL
-                    showPicture.src = imgURL;
+imagen.onload = function() {
+  var picWidth = this.width;
+  var picHeight = this.height;
+var wdthHghtRatio = picHeight/picWidth;
+  console.log('wdthHghtRatio: ' + wdthHghtRatio);
 
-                    // Revoke ObjectURL
-                    URL.revokeObjectURL(imgURL);
-                }
-                catch (e) {
-                    try {
-                        // Fallback if createObjectURL is not supported
-                        var fileReader = new FileReader();
-                        fileReader.onload = function (event) {
-                            showPicture.src = event.target.result;
-                        };
-                        fileReader.readAsDataURL(file);
-                    }
-                    catch (e) {
-                        //
-                        var error = document.querySelector("#error");
-                        if (error) {
-                            error.innerHTML = "Neither createObjectURL or FileReader are supported";
-                        }
-                    }
-                }
-            }
-        };
-    }
-})();
+  if (Number(picWidth) < 5000) {
+    var newHeight = Math.round(Number(400) * wdthHghtRatio);
+  } else {
+    return false;
+  };
+    document.getElementById('canvas_qr').height = newHeight;
+    ctx.drawImage(imagen,0,0, 400, newHeight);
+};
+};
+var canvas_qr_decode=$("#canavas_qr");
+qrcode.decode(canvas_qr_decode,function(data){
+    console.log(data);
+});

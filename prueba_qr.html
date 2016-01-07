@@ -2,10 +2,27 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Camera API</title>
+        <title>Foto QR</title>
         <link rel="stylesheet" href="css/base.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/prueba_qr.css" type="text/css" media="screen">
         <script src="frameworks/jquery-2.1.4.js"></script>
+        <script type="text/javascript" src="frameworks/js-qr/grid.js"></script>
+        <script type="text/javascript" src="frameworks/js-qr/version.js"></script>
+        <script type="text/javascript" src="frameworks/js-qr/detector.js"></script>
+        <script type="text/javascript" src="frameworks/js-qr/formatinf.js"></script>
+        <script type="text/javascript" src="frameworks/js-qr/errorlevel.js"></script>
+        <script type="text/javascript" src="frameworks/js-qr/bitmat.js"></script>
+        <script type="text/javascript" src="frameworks/js-qr/datablock.js"></script>
+        <script type="text/javascript" src="frameworks/js-qr/bmparser.js"></script>
+        <script type="text/javascript" src="frameworks/js-qr/datamask.js"></script>
+        <script type="text/javascript" src="frameworks/js-qr/rsdecoder.js"></script>
+        <script type="text/javascript" src="frameworks/js-qr/gf256poly.js"></script>
+        <script type="text/javascript" src="frameworks/js-qr/gf256.js"></script>
+        <script type="text/javascript" src="frameworks/js-qr/decoder.js"></script>
+        <script type="text/javascript" src="frameworks/js-qr/qrcode.js"></script>
+        <script type="text/javascript" src="frameworks/js-qr/findpat.js"></script>
+        <script type="text/javascript" src="frameworks/js-qr/alignpat.js"></script>
+        <script type="text/javascript" src="frameworks/js-qr/databr.js"></script>
     </head>
 
     <body>
@@ -13,11 +30,14 @@
         <div class="container">
             <div id="big_button"></div>
             <section class="main-content">                
-                <input type="file" id="take-picture" accept="image/*">
-                <img src="about:blank" alt="" id="show-picture">
-                <p id="error"></p>
+                <form id="form_send_qr" method="post" action="handle_qr_input.php" enctype="multipart/form-data">
+                    <input name="qr_code" id="take-picture" type="file" accept="image/*" onchange="upload(this.files[0])" >
+                    <canvas id="canvas_qr" width="400" height="266"></canvas><br/>
+                    <input type="submit" value="send"/>
+                </form>
             </section>
         </div>
         <script src="js/base.js"></script>
+        
     </body>
 </html>
