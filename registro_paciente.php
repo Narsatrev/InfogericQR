@@ -6,7 +6,7 @@
         <script src="Frameworks/jquery-2.1.4.js"></script>
     </head>
     <body>
-        <form id="registro" method="post" action="php/alta_paciente.php">
+        <form id="registro">
             <div id="datos_generales" class="div-login" css="visibility:visible;">
                 <div class="row">
                     <div class="col-sm-3">
@@ -131,6 +131,14 @@
                          <input type="text" style="width:100%;" name="edo_nutricional">           
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Datos médicos relevantes</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type="text" style="width:100%;" name="datos_medicos"></textarea>
+                    </div>
+                </div>
                  <div class="row">
                       <div class="col-sm-2">
                         <button><-</button>
@@ -216,55 +224,13 @@
                     </div>
                 </div>
             </div>            
-            <div id="medico" class="div-login">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <label>Médico de cabecera</label>
-                    </div>
-                    <div class="col-sm-7">
-                        <input type="text" style="width:100%;" name="nombre_medico">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <label>Contacto</label>
-                    </div>
-                    <div class="col-sm-2">
-                        <input type="email" style="width:100%;" placeholder="e.j nombre@empresa.com" name="mail_doctor">
-                    </div>
-                    <div class="col-sm-1"></div>
-                    <div class="col-sm-2">
-                        <label>Teléfono</label>
-                    </div>
-                    <div class="col-sm-2">
-                        <input type="text" style="width:100%;" name="tel_doctor">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <label>Datos médicos relevantes</label>
-                    </div>
-                    <div class="col-sm-7">
-                        <input type="text" style="width:100%;" name="datos_medicos"></textarea>
-                    </div>
-                </div>
-                 <div class="row">
-                      <div class="col-sm-2">
-                        <button><-</button>
-                    </div>
-                    <div class="col-sm-8"></div>
-                    <div class="col-sm-2">
-                        <button>-></button>
-                    </div>
-                </div>
-            </div>
              <div id="anexos_emergencias" class="div-login">
                 <div class="row">
                     <div class="col-sm-3">
                         <label>Anexos</label>
                     </div>
                     <div class="col-sm-7">
-                        <input type=file>
+                        <input type=file accept="image/*">
                     </div>
                 </div>
                  <div class="row">
@@ -272,7 +238,7 @@
                         <label>Descripción anexo</label>
                     </div>
                     <div class="col-sm-7">
-                        <input type=text name="descripcion_a" style="width:100%">
+                        <input type=text name="descripcion" style="width:100%">
                     </div>
                 </div>
                 <div class="row">
@@ -316,7 +282,6 @@
          edo_nutricional=$forma.find("input[name='edo_nutricional']").val(),
          alergias=$forma.find("input[name='alergias[]']"),
          medicamentos=$forma.find("input[name='medicamentos[]']"),
-         
         con_emergencia=$forma.find("input[name='con_emergencia']").val(),
          tel_primario=$forma.find("input[name='tel_primario']").val(),
          tel_opcional=$forma.find("input[name='tel_opcional']").val(),
@@ -326,18 +291,15 @@
         tel_doctor=$forma.find("input[name='tel_doctor']").val(),
         datos_medicos=$forma.find("input[name='datos_medicos']").val(),
         escolaridad=$forma.find("input[name='escolaridad']").val(),
-         seguridad=$forma.find("input[name='seguridad']").val()
-         url=$forma.attr('action');
+         seguro_social=$forma.find("input[name='seguro']").val(),
+         descripcion=$forma.find("input[name='descripcion']").val();
         var aux=[];
      
      var marcha,visual,auditivo;
      var num_med=medicamentos.length;
      var aux2=new Date();
      var fecha=aux2.getFullYear()+"-"+(aux2.getMonth()+1)+"-"+aux2.getDate();
-     alert(fecha);
-        auxiliares.each(function(){
-                aux.push($(this).val());
-            });
+        
      if($.inArray("Auditivo",aux)>-1){
         auditivo=1;   
      }else{
@@ -353,13 +315,35 @@
      }else{
         marcha=0;
      }
-     auxiliar=auditivo+""+visual+""+marcha;
+     var auxiliar=auditivo+""+visual+""+marcha;
         var posting=$.post("php/alta_contacto.php",{nombre:con_emergencia,telefono_primario:tel_primario,telefono_opcional:tel_opcional});
             posting.done(function(data){
                 alert(data);
-                var posting2=$.post(url,{nombre_paciente:nombre_paciente,edad:edad,sexo:sexo,tipo_sangre:tipo_sangre,peso:peso,talla:talla,tabaquismo:tabaquismo,escolaridad:escolaridad,estado_civil:edo_civil,numero_medicamentos:num_med,direccion:direccion,contacto:data,estado_nutricional:edo_nutricional,seguro_social:seguridad,auxiliar:auxiliar, anexo:anexo,descripcion_anexo:descripcion,fecha:fecha});
-                
-                
+        });
+         $.ajax({
+                type:"POST",
+                url:"php/alta_paciente.php",
+                data:{nombre_paciente:nombre_paciente, 
+                      edad: edad,
+                      sexo: sexo, 
+                      tipo_sangre: tipo_sangre,
+                      peso:peso,
+                      talla:talla,
+                      tabaquismo:tabaquismo,
+                      escolaridad:escolaridad,
+                      edo_civil:edo_civil,
+                      numero_medicamentos:num_med,
+                      direccion:direccion,
+                      edo_nutricional:edo_nutricional,
+                      seguro_social:seguro_social,
+                      auxiliares: auxiliares, 
+                      descripcion_anexo:descripcion,
+                      fecha:fecha,
+                      datos_medicos:datos_medicos},
+                cache:false,
+                    success:function(data2){ 
+                        alert(data2);
+                    }
             });
      
  });

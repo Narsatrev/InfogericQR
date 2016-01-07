@@ -2,10 +2,10 @@
 -- version 4.2.11
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jan 07, 2016 at 03:07 AM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Servidor: localhost
+-- Tiempo de generación: 07-01-2016 a las 18:50:18
+-- Versión del servidor: 5.6.21
+-- Versión de PHP: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `InfogericQR`
+-- Base de datos: `InfogericQR`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `alergias`
+-- Estructura de tabla para la tabla `alergias`
 --
 
 CREATE TABLE IF NOT EXISTS `alergias` (
@@ -34,32 +34,47 @@ CREATE TABLE IF NOT EXISTS `alergias` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auxiliar`
+-- Estructura de tabla para la tabla `auxiliar`
 --
 
 CREATE TABLE IF NOT EXISTS `auxiliar` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `auxiliar` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contacto`
+-- Estructura de tabla para la tabla `contacto`
 --
 
 CREATE TABLE IF NOT EXISTS `contacto` (
 `id` int(11) NOT NULL,
   `nombre` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `telefono_primario` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `telefono_opcional` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `correo` varchar(100) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `telefono_opcional` varchar(25) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `contacto`
+--
+
+INSERT INTO `contacto` (`id`, `nombre`, `telefono_primario`, `telefono_opcional`) VALUES
+(1, '', '', ''),
+(2, '', '', ''),
+(3, '', '', ''),
+(4, '', '', ''),
+(5, '', '', ''),
+(6, '', '', ''),
+(7, '', '', ''),
+(8, '', '', ''),
+(9, '', '', ''),
+(10, '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `doctor`
+-- Estructura de tabla para la tabla `doctor`
 --
 
 CREATE TABLE IF NOT EXISTS `doctor` (
@@ -74,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `doctor` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `emergencia`
+-- Estructura de tabla para la tabla `emergencia`
 --
 
 CREATE TABLE IF NOT EXISTS `emergencia` (
@@ -86,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `emergencia` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `enfermedad`
+-- Estructura de tabla para la tabla `enfermedad`
 --
 
 CREATE TABLE IF NOT EXISTS `enfermedad` (
@@ -97,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `enfermedad` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `estado_civil`
+-- Estructura de tabla para la tabla `estado_civil`
 --
 
 CREATE TABLE IF NOT EXISTS `estado_civil` (
@@ -108,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `estado_civil` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `estado_nutricional`
+-- Estructura de tabla para la tabla `estado_nutricional`
 --
 
 CREATE TABLE IF NOT EXISTS `estado_nutricional` (
@@ -119,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `estado_nutricional` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `medicina`
+-- Estructura de tabla para la tabla `medicina`
 --
 
 CREATE TABLE IF NOT EXISTS `medicina` (
@@ -130,11 +145,12 @@ CREATE TABLE IF NOT EXISTS `medicina` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paciente`
+-- Estructura de tabla para la tabla `paciente`
 --
 
 CREATE TABLE IF NOT EXISTS `paciente` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
+  `nombre` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `edad` int(11) NOT NULL,
   `sexo` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `tipo_sangre` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
@@ -149,13 +165,17 @@ CREATE TABLE IF NOT EXISTS `paciente` (
   `contacto` int(11) NOT NULL,
   `estado_nutricional` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `seguro_social` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `id_doctor` int(11) NOT NULL
+  `id_doctor` int(11) NOT NULL,
+  `datos_medicos` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `anexo` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `descripcion_anexo` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `auxiliar` bit(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paciente_alergia`
+-- Estructura de tabla para la tabla `paciente_alergia`
 --
 
 CREATE TABLE IF NOT EXISTS `paciente_alergia` (
@@ -166,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `paciente_alergia` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paciente_auxiliar`
+-- Estructura de tabla para la tabla `paciente_auxiliar`
 --
 
 CREATE TABLE IF NOT EXISTS `paciente_auxiliar` (
@@ -177,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `paciente_auxiliar` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paciente_emergencia`
+-- Estructura de tabla para la tabla `paciente_emergencia`
 --
 
 CREATE TABLE IF NOT EXISTS `paciente_emergencia` (
@@ -188,7 +208,7 @@ CREATE TABLE IF NOT EXISTS `paciente_emergencia` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paciente_enfermedad`
+-- Estructura de tabla para la tabla `paciente_enfermedad`
 --
 
 CREATE TABLE IF NOT EXISTS `paciente_enfermedad` (
@@ -199,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `paciente_enfermedad` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paciente_medicina`
+-- Estructura de tabla para la tabla `paciente_medicina`
 --
 
 CREATE TABLE IF NOT EXISTS `paciente_medicina` (
@@ -210,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `paciente_medicina` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `seguridad_social`
+-- Estructura de tabla para la tabla `seguridad_social`
 --
 
 CREATE TABLE IF NOT EXISTS `seguridad_social` (
@@ -221,7 +241,7 @@ CREATE TABLE IF NOT EXISTS `seguridad_social` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipo_sanguineo`
+-- Estructura de tabla para la tabla `tipo_sanguineo`
 --
 
 CREATE TABLE IF NOT EXISTS `tipo_sanguineo` (
@@ -230,120 +250,120 @@ CREATE TABLE IF NOT EXISTS `tipo_sanguineo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `alergias`
+-- Indices de la tabla `alergias`
 --
 ALTER TABLE `alergias`
  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `auxiliar`
---
-ALTER TABLE `auxiliar`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `contacto`
+-- Indices de la tabla `contacto`
 --
 ALTER TABLE `contacto`
  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `doctor`
+-- Indices de la tabla `doctor`
 --
 ALTER TABLE `doctor`
  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `enfermedad`
+-- Indices de la tabla `enfermedad`
 --
 ALTER TABLE `enfermedad`
  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `estado_civil`
+-- Indices de la tabla `estado_civil`
 --
 ALTER TABLE `estado_civil`
  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `estado_nutricional`
+-- Indices de la tabla `estado_nutricional`
 --
 ALTER TABLE `estado_nutricional`
  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `medicina`
+-- Indices de la tabla `medicina`
 --
 ALTER TABLE `medicina`
  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `seguridad_social`
+-- Indices de la tabla `paciente`
+--
+ALTER TABLE `paciente`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `seguridad_social`
 --
 ALTER TABLE `seguridad_social`
  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tipo_sanguineo`
+-- Indices de la tabla `tipo_sanguineo`
 --
 ALTER TABLE `tipo_sanguineo`
  ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `alergias`
+-- AUTO_INCREMENT de la tabla `alergias`
 --
 ALTER TABLE `alergias`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `auxiliar`
---
-ALTER TABLE `auxiliar`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `contacto`
+-- AUTO_INCREMENT de la tabla `contacto`
 --
 ALTER TABLE `contacto`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
--- AUTO_INCREMENT for table `doctor`
+-- AUTO_INCREMENT de la tabla `doctor`
 --
 ALTER TABLE `doctor`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `enfermedad`
+-- AUTO_INCREMENT de la tabla `enfermedad`
 --
 ALTER TABLE `enfermedad`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `estado_civil`
+-- AUTO_INCREMENT de la tabla `estado_civil`
 --
 ALTER TABLE `estado_civil`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `estado_nutricional`
+-- AUTO_INCREMENT de la tabla `estado_nutricional`
 --
 ALTER TABLE `estado_nutricional`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `medicina`
+-- AUTO_INCREMENT de la tabla `medicina`
 --
 ALTER TABLE `medicina`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `seguridad_social`
+-- AUTO_INCREMENT de la tabla `paciente`
+--
+ALTER TABLE `paciente`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `seguridad_social`
 --
 ALTER TABLE `seguridad_social`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `tipo_sanguineo`
+-- AUTO_INCREMENT de la tabla `tipo_sanguineo`
 --
 ALTER TABLE `tipo_sanguineo`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
