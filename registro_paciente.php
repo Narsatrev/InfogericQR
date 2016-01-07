@@ -184,7 +184,6 @@
                     </div>
                     <div class="col-sm-8"></div>
                     <div class="col-sm-2">
-                        <div class="col-sm-2">
                         <a class="next icon" onclick='nav_sig("#div3","#div4")'></a>
                     </div>
                     </div>
