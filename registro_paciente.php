@@ -6,7 +6,7 @@
         <script src="Frameworks/jquery-2.1.4.js"></script>
     </head>
     <body>
-        <form id="registro" method="post" action="">
+        <form id="registro" method="post" action="php/alta_paciente.php">
             <div id="datos_generales" class="div-login" css="visibility:visible;">
                 <div class="row">
                     <div class="col-sm-3">
@@ -267,6 +267,14 @@
                         <input type=file>
                     </div>
                 </div>
+                 <div class="row">
+                    <div class="col-sm-3">
+                        <label>Descripción anexo</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type=text name="descripcion_a" style="width:100%">
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-sm-3">
                         <label>Emergencias Recientes</label>
@@ -308,8 +316,9 @@
          edo_nutricional=$forma.find("input[name='edo_nutricional']").val(),
          alergias=$forma.find("input[name='alergias[]']"),
          medicamentos=$forma.find("input[name='medicamentos[]']"),
+         
         con_emergencia=$forma.find("input[name='con_emergencia']").val(),
-         tel_principal=$forma.find("input[name='tel_principal']").val(),
+         tel_primario=$forma.find("input[name='tel_primario']").val(),
          tel_opcional=$forma.find("input[name='tel_opcional']").val(),
          direccion=$forma.find("input[name='direccion']").val(),
          nombre_medico=$forma.find("input[name='nombre_medico']").val(),
@@ -323,6 +332,9 @@
      
      var marcha,visual,auditivo;
      var num_med=medicamentos.length;
+     var aux2=new Date();
+     var fecha=aux2.getFullYear()+"-"+(aux2.getMonth()+1)+"-"+aux2.getDate();
+     alert(fecha);
         auxiliares.each(function(){
                 aux.push($(this).val());
             });
@@ -342,9 +354,12 @@
         marcha=0;
      }
      auxiliar=auditivo+""+visual+""+marcha;
-        var posting=$.post(url,{nombre_paciente:nombre_paciente,edad:edad,sexo:sexo,tipo_sangre:tipo_sangre,peso:peso,talla:talla,tabaquismo:tabaquismo,escolaridad:escolaridad,estado_civil:edo_civil,numero_medicamentos:num_med,direccion:direccion,contacto:con_emergencia,estado_nutricional:edo_nutricional,seguro_social:seguridad});
+        var posting=$.post("php/alta_contacto.php",{nombre:con_emergencia,telefono_primario:tel_primario,telefono_opcional:tel_opcional});
             posting.done(function(data){
                 alert(data);
+                var posting2=$.post(url,{nombre_paciente:nombre_paciente,edad:edad,sexo:sexo,tipo_sangre:tipo_sangre,peso:peso,talla:talla,tabaquismo:tabaquismo,escolaridad:escolaridad,estado_civil:edo_civil,numero_medicamentos:num_med,direccion:direccion,contacto:data,estado_nutricional:edo_nutricional,seguro_social:seguridad,auxiliar:auxiliar, anexo:anexo,descripcion_anexo:descripcion,fecha:fecha});
+                
+                
             });
      
  });

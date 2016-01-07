@@ -100,6 +100,9 @@ a:hover {
 .patients:before {
 	content: "\e908";
 }
+.qr:before {
+	content: "\e901";
+}
 .cbp-ig-grid .cbp-ig-title {
 	margin: 20px 0 10px 0;
 	padding: 20px 0 0 0;
