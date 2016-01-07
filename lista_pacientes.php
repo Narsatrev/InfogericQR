@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <?php
-    $db_hostname='localhost';
-    $db_username='root';
-    $db_password='';
-    $db_name='InfogericQR';
-
-    $conexion=mysqli_connect($db_hostname,$db_username,$db_password,$db_name) OR die ('No se pudo   conectar a la base de datos:'.mysqli_error());
+require('php/conexion.php');
     $paciente=mysqli_query($conexion,"SELECT id,nombre,edad,fecha_actual_medicamentos,direccion   from paciente");
     $n=mysqli_num_rows($paciente);
     if(!$n>0){

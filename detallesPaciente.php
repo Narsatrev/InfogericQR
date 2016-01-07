@@ -26,15 +26,11 @@
         <meta charset="utf-8"/>
     </head>
 <?php
-    $db_hostname='localhost';
-    $db_username='root';
-    $db_password='';
-    $db_name='InfogericQR';
+    
 $link_paciente = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $id_paciente=explode("=",$link_paciente)[1];
 
-
-$conexion=mysqli_connect($db_hostname,$db_username,$db_password,$db_name) OR die ('No se pudo   conectar a la base de datos:'.mysqli_error());
+require('php/conexion.php');
     $paciente=mysqli_query($conexion,"SELECT * from paciente WHERE id='$id_paciente'");
     $n=mysqli_num_rows($paciente);
     if(!$n>0){
@@ -79,7 +75,7 @@ $conexion=mysqli_connect($db_hostname,$db_username,$db_password,$db_name) OR die
         $datos_contacto=mysqli_query($conexion,$stringx);
         $nc=mysqli_num_rows($datos_contacto);
         if(!$nc>0){
-            echo "El paciente no tiene datos de contacto.";
+            echo "El paciente no tiene datos de contacto.</br>";
         }else{
             
             $contacto=mysqli_fetch_assoc($datos_contacto);                
