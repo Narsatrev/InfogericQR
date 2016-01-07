@@ -31,7 +31,6 @@ function mandarPaginaPaciente(){
 }
 
 function showInfo(data) {
-    console.log(data);
     if(data=="error decoding QR Code"){
         alert("Su imagen no contiene un código QR. Inténtelo de nuevo");
     }else{
@@ -55,7 +54,6 @@ function traducirQR(f){
         lector_qr.readAsDataURL(f[i]);	
     }
 }
-
 
     
 

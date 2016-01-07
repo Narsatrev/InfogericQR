@@ -26,27 +26,7 @@
         <script type="text/javascript" src="frameworks/js-qr-gen/qrcode.js"></script>
         
     </head>
-
-    <body>
-
-        <div class="container">
-            <div id="big_button"></div>
-            <section class="main-content">                
-                <form id="form_send_qr" method="post" action="php/handle_qr_input.php" enctype="multipart/form-data">
-                    <input name="qr_code_img" id="take-picture" type="file" accept="image/*" onchange="upload(this.files[0]);traducirQR(this.files);">
-                    <input type="hidden" name="filename_qr" id="filename_qr" />
-                    
-                    
-                    
-                    <canvas id="canvas_qr" width="400" height="266"></canvas><br/>
-                    <input type="submit" value="send"/>
-                </form>
-            </section>
-        </div>
-        
-        <div id='qrcode'></div>
-        
-        <script src="js/base.js"></script>
+    <body>       
         <script>
             //Generar codigo qr
             var qrcode = new QRCode(document.getElementById("qrcode"), {
