@@ -71,11 +71,23 @@ $conexion=mysqli_connect($db_hostname,$db_username,$db_password,$db_name) OR die
         Dirección:
         <?php echo $datos_paciente['direccion']?><br/>
         
-        Contacto:
-        <?php
-        //traer datos contacto!!
-        echo $datos_paciente['contacto']
-        ?><br/>
+        
+        <?php            
+        $id_contacto=$datos_paciente['contacto'];
+
+        $stringx="SELECT * from contacto WHERE id='$id_contacto';";
+        $datos_contacto=mysqli_query($conexion,$stringx);
+        $nc=mysqli_num_rows($datos_contacto);
+        if(!$nc>0){
+            echo "El paciente no tiene datos de contacto.";
+        }else{
+            
+            $contacto=mysqli_fetch_assoc($datos_contacto);                
+            echo "Nombre del contacto:".$contacto['nombre']."<br/>";
+            echo "Teléfono primario:".$contacto['telefono_primario']."<br/>";
+            echo "Teléfono opcional:".$contacto['telefono_opcional']."<br/>";
+        }                                        
+        ?>
         Estado Nutricional:
         <?php echo $datos_paciente['estado_nutricional']?><br/>
         Seguro social:
