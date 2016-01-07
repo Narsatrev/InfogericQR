@@ -1,9 +1,9 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="Frameworks/bootstrap-3.3.4-dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="Frameworks/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
-        <script src="Frameworks/jquery-2.1.4.js"></script>
+        <link rel="stylesheet" href="frameworks/bootstrap-3.3.4-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="frameworks/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
+        <script src="frameworks/jquery-2.1.4.js"></script>
     </head>
     <body>
         <form id="registro"  method="post" action="MenuDoctor.php" >

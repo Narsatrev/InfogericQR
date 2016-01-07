@@ -25,7 +25,6 @@ a:hover {
 
 .main {
 	width: 90%;
-	padding: 1em;
 	margin: 0 auto;
 }
 .cbp-ig-grid {
@@ -157,7 +156,7 @@ a:hover {
 
 .cbp-ig-grid li > a:hover .cbp-ig-title:before {
 	background: #fff;
-	margin-top: 80px;
+	margin-top:15%;
 }
 
 
@@ -166,42 +165,12 @@ a:hover {
 		width: 50%;
         height:48%;
 	}
-
-	/* reset the grid lines */
-	.cbp-ig-grid li:nth-child(-n+3){
-		border-top: 0px solid #ddd;
-	}
-
-	.cbp-ig-grid li:nth-child(3n-1),
-	.cbp-ig-grid li:nth-child(3n-2) {
-		box-shadow: none;
-	}
-
-	.cbp-ig-grid li:nth-child(-n+2){
-		border-top: none;
-	}
-
-	.cbp-ig-grid li:nth-child(2n-1) {
-		box-shadow: 1px 0 0 #ddd;
-	}
 }
 
 @media screen and (max-width: 41.6em) { 
 	.cbp-ig-grid li {
 		width: 100%;
         height: 48%;
-	}
-
-	.cbp-ig-grid li:nth-child(-n+2){
-		border-top: 0px solid #ddd;
-	}
-
-	.cbp-ig-grid li:nth-child(2n-1) {
-		box-shadow: none
-	}
-
-	.cbp-ig-grid li:first-child {
-		border-top: none;
 	}
 }
 
