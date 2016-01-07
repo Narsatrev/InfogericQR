@@ -9,7 +9,7 @@
         <form id="registro" method="post" action="#">
             <div id="datos_generales" class="div-login" css="visibility:visible;">
                 <div class="row">
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <label>Nombre</label>
                     </div>
                     <div class="col-sm-7">
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <label>Edad</label>
                     </div>
                     <div class="col-sm-2">
@@ -32,7 +32,22 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-sm-3">
+                        <label>Estado Civil</label>
+                    </div>
                     <div class="col-sm-2">
+                        <input type="text" style="width:100%;">
+                    </div>
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-2">
+                        <label>Pago del seguro social</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" style="width:100%;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
                         <label>Peso</label>
                     </div>
                     <div class="col-sm-2">
@@ -45,11 +60,18 @@
                     <div class="col-sm-2">
                         <input type="text" style="width:100%;">
                     </div>
+                        
+                </div>
+                <div class="row">
+                    <div class="col-sm-10"></div>
+                    <div class="col-sm-2">
+                        <button>-></button>
+                    </div>
                 </div>
             </div>
-            <div id="datos_medicos1" class="div-login" css="visibility:visible;">
+            <div id="datos_medicos" class="div-login" style="background:grey;" >
                 <div class="row">
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <label>Tipo de sangre</label>
                     </div>
                     <div class="col-sm-2" >
@@ -76,53 +98,187 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-sm-3">
+                        <label>Auxiliares</label>                        
+                    </div>
+                    <div class="col-sm-1">
+                        <input type="checkbox" name="auxiliares[]" value="Auditivo">Auditivo                        
+                    </div>
+                    <div class="col-sm-1">
+                        <input type="checkbox" name="auxiliares[]" value="Visual">Visual                       
+                    </div>
                     <div class="col-sm-2">
-                        <label>Edad</label>
+                        <input type="checkbox" name="auxiliares[]" value="De marcha">De marcha                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Estdo Nutricional</label>                        
+                    </div>
+                    <div class="col-sm-3">
+                         <input type="text" style="width:100%;">           
+                    </div>
+                </div>
+                 <div class="row">
+                      <div class="col-sm-2">
+                        <button><-</button>
+                    </div>
+                    <div class="col-sm-8"></div>
+                    <div class="col-sm-2">
+                        <button>-></button>
+                    </div>
+                </div>
+            </div>
+            <div id="medicamentos_alergias" class="div-login">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Alergias</label>
+                    </div>
+                    <div class="col-sm-2" >
+                        <a>Agregar</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="alergias"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Medicamentos</label>
+                    </div>
+                    <div class="col-sm-2" >
+                        <a>Agregar</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="alergias"></div>
+                </div>
+                 <div class="row">
+                      <div class="col-sm-2">
+                        <button><-</button>
+                    </div>
+                    <div class="col-sm-8"></div>
+                    <div class="col-sm-2">
+                        <button>-></button>
+                    </div>
+                </div>
+            </div>
+            <div id="contacto" class="div-login" style="background:grey;">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>En caso de emergencia contactar a:</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type="text" style="width:100%;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Teléfono de cuidador primario</label>
                     </div>
                     <div class="col-sm-2">
                         <input type="text" style="width:100%;">
                     </div>
                     <div class="col-sm-1"></div>
                     <div class="col-sm-2">
-                        <label>Sexo</label>
+                        <label>Telefono opcional</label>
                     </div>
                     <div class="col-sm-2">
                         <input type="text" style="width:100%;">
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-sm-3">
+                        <label>Dirección del paciente</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type="text" style="width:100%;">
+                    </div>
+                </div>
+                 <div class="row">
+                      <div class="col-sm-2">
+                        <button><-</button>
+                    </div>
+                    <div class="col-sm-8"></div>
                     <div class="col-sm-2">
-                        <label>Peso</label>
+                        <button>-></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="medico" class="div-login">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Médico de cabecera</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type="text" style="width:100%;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Contacto</label>
                     </div>
                     <div class="col-sm-2">
-                        <input type="text" style="width:100%;">
+                        <input type="email" style="width:100%;" placeholder="e.j nombre@empresa.com">
                     </div>
                     <div class="col-sm-1"></div>
                     <div class="col-sm-2">
-                        <label>Talla</label>
+                        <label>Teléfono</label>
                     </div>
                     <div class="col-sm-2">
                         <input type="text" style="width:100%;">
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Datos médicos relevantes</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <textarea style="width:100%;"></textarea>
+                    </div>
+                </div>
+                 <div class="row">
+                      <div class="col-sm-2">
+                        <button><-</button>
+                    </div>
+                    <div class="col-sm-8"></div>
+                    <div class="col-sm-2">
+                        <button>-></button>
+                    </div>
+                </div>
             </div>
-            <label>Datos de importancia médica</label>
+             <div id="anexos_emergencias" class="div-login">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Anexos</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type=file>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Emergencias Recientes</label>
+                    </div>
+                    <div class="col-sm-2">
+                       <a>Agregar</a>
+                    </div>
+                </div>
+                  <div class="row">
+                    <div id="emergencias_recientes"></div>
+                </div>
+                 <div class="row">
+                      <div class="col-sm-2">
+                        <button><-</button>
+                    </div>
+                    <div class="col-sm-8"></div>
+                    <div class="col-sm-2">
+                        <button>√</button>
+                    </div>
+                </div>
+            </div>
             
-            <label>Alergias</label>
-            <label>Tipos de sangre</label>
-            <label>Auxiliares</label>
-            <label>Medicamentos</label>
-            <label>En caso de emergencia contactar a:</label>
-            <label>Teléfono de cuidador primario</label>
-            <label>Telefono opcional</label>
-            <label>Dirección del paciente</label>
-            <label>Tabaquismo</label>
-            <label>Estado Civil</label>
-            <label>Estado Nutricional</label>
-            <label>Pago del seguro social</label>
-            <label>Médico de cabecera</label>
-            <label>Contacto</label>
-            <label>Teléfono</label>
+            
         </form>
     </body>
 </html>
