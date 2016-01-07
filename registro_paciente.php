@@ -369,10 +369,10 @@
     }
     function nav_sig(origen,destino){
         $(origen).animate({left:'-100%'},800);
-        $(destino).animate({left:'0%'},800);
+        $(destino).animate({left:'5%'},800);
     }
     function nav_ant(origen,destino){
         $(origen).animate({left:'200%'},800);
-        $(destino).animate({left:'0%'},800);
+        $(destino).animate({left:'5%'},800);
     }
 </script>

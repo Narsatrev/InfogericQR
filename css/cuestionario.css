@@ -12,6 +12,7 @@ body {
     font-family: 'Lato', Calibri, Arial, sans-serif;
     color: #78464b;
     overflow-x: hidden;
+    font-size:20px;
 }
 
 .next {
@@ -71,7 +72,8 @@ body {
     top:10%;
     left:200%;
     padding:5%;
-    padding-right:0;
+    padding-left:5%; 
+    padding-right:4%;
     width:100%;
     height:70%;
 }
