@@ -6,7 +6,7 @@
         <script src="Frameworks/jquery-2.1.4.js"></script>
     </head>
     <body>
-        <form id="registro"  method="post">
+        <form id="registro"  method="post" action="MenuDoctor.php" >
             <div id="datos_generales" class="div-login" css="visibility:visible;">
                 <div class="row">
                     <div class="col-sm-3">
@@ -298,9 +298,17 @@
      var marcha,visual,auditivo;
      var num_med=medicamentos.length;
      var aux2=new Date();
+     var medicina="";
+     var alergia="";
      var fecha=aux2.getFullYear()+"-"+(aux2.getMonth()+1)+"-"+aux2.getDate();
         auxiliares.each(function(){
                 aux.push($(this).val());
+            });
+     medicamentos.each(function(){
+                medicina=medicina+$(this).val()+"*";
+            });
+     alergias.each(function(){
+                alergia=alergia+$(this).val()+"*";
             });
      if($.inArray("Auditivo",aux)>-1){
         auditivo=1;   
@@ -331,17 +339,19 @@
                       tabaquismo:tabaquismo,
                       escolaridad:escolaridad,
                       edo_civil:edo_civil,
-                      numero_medicamentos:num_med,
+                      num_med:num_med,
                       direccion:direccion,
                       edo_nutricional:edo_nutricional,
                       seguro_social:seguro_social,
                       auxiliar:auxiliar, 
                       descripcion:descripcion,
                       fecha:fecha,
-                      datos_medicos:datos_medicos});
+                      datos_medicos:datos_medicos,
+                      medicina:medicina,
+                      alergia:alergia});
                     posting2.done(function(data2){
-                        alert(data2);
-                    });
+                        
+            });
     });        
 }); 
     function nueva_alergia(){
