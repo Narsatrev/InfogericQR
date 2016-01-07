@@ -1,7 +1,7 @@
 <?php
-$nombre=$_POST['nombre'];
-$telefono_primario=$_POST['telefono_primario'];
-$telefono_opcional=$_POST['telefono_opcional'];
+$nombre=$_POST['con_emergencia'];
+$telefono_primario=$_POST['tel_primario'];
+$telefono_opcional=$_POST['tel_opcional'];
 $db_hostname='localhost';
 $db_username='root';
 $db_password='';

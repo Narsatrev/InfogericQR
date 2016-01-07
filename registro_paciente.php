@@ -6,7 +6,7 @@
         <script src="Frameworks/jquery-2.1.4.js"></script>
     </head>
     <body>
-        <form id="registro">
+        <form id="registro"  method="post">
             <div id="datos_generales" class="div-login" css="visibility:visible;">
                 <div class="row">
                     <div class="col-sm-3">
@@ -292,14 +292,16 @@
         datos_medicos=$forma.find("input[name='datos_medicos']").val(),
         escolaridad=$forma.find("input[name='escolaridad']").val(),
          seguro_social=$forma.find("input[name='seguro']").val(),
-         descripcion=$forma.find("input[name='descripcion']").val();
-        var aux=[];
-     
+         descripcion=$forma.find("input[name='descripcion']").val(),
+         url=$forma.attr('action');
+    var aux=[]; 
      var marcha,visual,auditivo;
      var num_med=medicamentos.length;
      var aux2=new Date();
      var fecha=aux2.getFullYear()+"-"+(aux2.getMonth()+1)+"-"+aux2.getDate();
-        
+        auxiliares.each(function(){
+                aux.push($(this).val());
+            });
      if($.inArray("Auditivo",aux)>-1){
         auditivo=1;   
      }else{
@@ -316,19 +318,16 @@
         marcha=0;
      }
      var auxiliar=auditivo+""+visual+""+marcha;
-        var posting=$.post("php/alta_contacto.php",{nombre:con_emergencia,telefono_primario:tel_primario,telefono_opcional:tel_opcional});
+     var posting=$.post("php/alta_contacto.php",{con_emergencia:con_emergencia,tel_primario:tel_primario,tel_opcional:tel_opcional});
             posting.done(function(data){
-                alert(data);
-        });
-         $.ajax({
-                type:"POST",
-                url:"php/alta_paciente.php",
-                data:{nombre_paciente:nombre_paciente, 
+                var posting2=$.post("php/alta_paciente.php",        
+            {nombre_paciente:nombre_paciente, 
                       edad: edad,
                       sexo: sexo, 
                       tipo_sangre: tipo_sangre,
                       peso:peso,
                       talla:talla,
+                      contacto:data,
                       tabaquismo:tabaquismo,
                       escolaridad:escolaridad,
                       edo_civil:edo_civil,
@@ -336,17 +335,15 @@
                       direccion:direccion,
                       edo_nutricional:edo_nutricional,
                       seguro_social:seguro_social,
-                      auxiliares: auxiliares, 
-                      descripcion_anexo:descripcion,
+                      auxiliar:auxiliar, 
+                      descripcion:descripcion,
                       fecha:fecha,
-                      datos_medicos:datos_medicos},
-                cache:false,
-                    success:function(data2){ 
-                        alert(data2);
-                    }
-            });
-     
- });
+                      datos_medicos:datos_medicos});
+                    posting2.done(function(data2){
+                        alert(data2);
+                    });
+    });        
+}); 
     function nueva_alergia(){
         $('#alergias').append("<div class='row'><div class='col-sm-1'></div><div class='col-sm-5'><input type='text' name='alergias[]' style='width:100%;'/></div><div class='col-sm-2'><a>Quitar</a></div></div>");
     }

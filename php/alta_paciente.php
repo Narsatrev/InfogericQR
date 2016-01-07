@@ -16,6 +16,7 @@ $seguro_social=$_POST['seguro_social'];
 $auxiliar=$_POST['auxiliar'];
 $datos_medicos=$_POST['datos_medicos'];
 $descripcion_anexo=$_POST['descripcion'];
+$contacto=$_POST['contacto'];
 
 
 $db_hostname='localhost';
@@ -23,7 +24,7 @@ $db_username='root';
 $db_password='';
 $db_name='InfogericQR';
 $conexion=mysqli_connect($db_hostname,$db_username,$db_password,$db_name) OR die ('No se pudo conectar a la base de datos:'.mysqli_error());
-$result = mysqli_query($conexion,"INSERT INTO `paciente`(`nombre`,`edad`,`sexo`,`tipo_sangre`,`peso`,`talla`,`tabaquismo`,`escolaridad`,`estado_civil`,`numero_medicamentos`,`fecha_actual_medicamentos`,`direccion`,`estado_nutricional`,`seguro_social`,`auxiliar`,`datos_medicos`,`descripcion_anexo`) VALUES ('$nombre','$edad','$sexo','$tipo_sangre','$peso','$talla','$tabaquismo','$escolaridad','$estado_civil','$numero_medicamentos','$fecha_actual_medicamentos','$direccion','$estado_nutricional','$seguro_social','$auxiliar','$datos_medicos','$descripcion_anexo');");
+$result = mysqli_query($conexion,"INSERT INTO `paciente`(`nombre`,`edad`,`sexo`,`tipo_sangre`,`peso`,`talla`,`tabaquismo`,`escolaridad`,`estado_civil`,`contacto`,`numero_medicamentos`,`fecha_actual_medicamentos`,`direccion`,`estado_nutricional`,`seguro_social`,`auxiliar`,`datos_medicos`,`descripcion_anexo`) VALUES ('$nombre','$edad','$sexo','$tipo_sangre','$peso','$talla','$tabaquismo','$escolaridad','$estado_civil','$contacto','$numero_medicamentos','$fecha_actual_medicamentos','$direccion','$estado_nutricional','$seguro_social','$auxiliar','$datos_medicos','$descripcion_anexo');");
 if($result){
     echo "exito";
     }else{
