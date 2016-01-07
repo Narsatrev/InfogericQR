@@ -87,7 +87,7 @@
                         <label>Tipo de sangre</label>
                     </div>
                     <div class="col-sm-2" >
-                        <select style="width:100%; height:100%;" name="tipo_sangre">
+                        <select style="width:100%; " name="tipo_sangre">
                             <option>A+</option>
                             <option>A-</option>
                             <option>B+</option>
