@@ -30,8 +30,9 @@
     $db_username='root';
     $db_password='';
     $db_name='InfogericQR';
+$link_paciente = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$id_paciente=explode("=",$link_paciente)[1];
 
-$id_paciente=$_POST['id_paciente'];
 
 $conexion=mysqli_connect($db_hostname,$db_username,$db_password,$db_name) OR die ('No se pudo   conectar a la base de datos:'.mysqli_error());
     $paciente=mysqli_query($conexion,"SELECT * from paciente WHERE id='$id_paciente'");
