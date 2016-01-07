@@ -3,11 +3,12 @@
         <meta charset="UTF-8" />
         <link rel="stylesheet" href="frameworks/bootstrap-3.3.4-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="frameworks/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="css/cuestionario.css" />
         <script src="frameworks/jquery-2.1.4.js"></script>
     </head>
     <body>
         <form id="registro"  method="post" action="MenuDoctor.php" >
-            <div id="datos_generales" class="div-login" css="visibility:visible;">
+            <div id="div1" class="div-login" style="left:5%;">
                 <div class="row">
                     <div class="col-sm-3">
                         <label>Nombre</label>
@@ -59,13 +60,16 @@
                         
                 </div>
                 <div class="row">
-                    <div class="col-sm-10"></div>
+                     <div class="col-sm-2">
+                        <a class="home icon" href='MenuDoctor.php'></a>
+                    </div>
+                    <div class="col-sm-8"></div>
                     <div class="col-sm-2">
-                        <button>-></button>
+                        <a class="next icon" onclick='nav_sig("#div1","#div2")'></a>
                     </div>
                 </div>
             </div>
-            <div id="datos_medicos" class="div-login" style="background:grey;" >
+            <div id="div2" class="div-login" >
                  <div class="row">
                     <div class="col-sm-3">
                         <label>Peso</label>
@@ -113,14 +117,16 @@
                     <div class="col-sm-3">
                         <label>Auxiliares</label>                        
                     </div>
-                    <div class="col-sm-1">
-                        <input type="checkbox" name="auxiliares[]" value="Auditivo">Auditivo                        
-                    </div>
-                    <div class="col-sm-1">
-                        <input type="checkbox" name="auxiliares[]" value="Visual">Visual                       
-                    </div>
-                    <div class="col-sm-2">
-                        <input type="checkbox" name="auxiliares[]" value="De marcha">De marcha                        
+                    <div class="col-sm-9">
+                        <div class="col-sm-3">
+                            <input type="checkbox" name="auxiliares[]" value="Auditivo"> Auditivo                        
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="checkbox" name="auxiliares[]" value="Visual"> Visual                       
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="checkbox" name="auxiliares[]" value="De marcha"> De marcha                        
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -141,15 +147,15 @@
                 </div>
                  <div class="row">
                       <div class="col-sm-2">
-                        <button><-</button>
+                        <a class="prev icon" onclick='nav_ant("#div2","#div1")'></a>
                     </div>
                     <div class="col-sm-8"></div>
                     <div class="col-sm-2">
-                        <button>-></button>
+                        <a class="next icon" onclick='nav_sig("#div2","#div3")'></a>
                     </div>
                 </div>
             </div>
-            <div id="medicamentos_alergias" class="div-login">
+            <div id="div3" class="div-login">
                 <div class="row">
                     <div class="col-sm-3">
                         <label>Alergias</label>
@@ -174,15 +180,17 @@
                 </div>
                  <div class="row">
                       <div class="col-sm-2">
-                        <button><-</button>
+                        <a class="prev icon" onclick='nav_ant("#div3","#div2")'></a>
                     </div>
                     <div class="col-sm-8"></div>
                     <div class="col-sm-2">
-                        <button>-></button>
+                        <div class="col-sm-2">
+                        <a class="next icon" onclick='nav_sig("#div3","#div4")'></a>
+                    </div>
                     </div>
                 </div>
             </div>
-            <div id="contacto" class="div-login" style="background:grey;">
+            <div id="div4" class="div-login" >
                 <div class="row">
                     <div class="col-sm-3">
                         <label>En caso de emergencia contactar a:</label>
@@ -216,15 +224,15 @@
                 </div>
                  <div class="row">
                       <div class="col-sm-2">
-                        <button><-</button>
+                        <a class="prev icon" onclick='nav_ant("#div4","#div3")'></a>
                     </div>
                     <div class="col-sm-8"></div>
                     <div class="col-sm-2">
-                        <button>-></button>
+                        <a class="next icon" onclick='nav_sig("#div4","#div5")'></a>
                     </div>
                 </div>
             </div>            
-             <div id="anexos_emergencias" class="div-login">
+             <div id="div5" class="div-login">
                 <div class="row">
                     <div class="col-sm-3">
                         <label>Anexos</label>
@@ -254,7 +262,7 @@
                 </div>
                  <div class="row">
                       <div class="col-sm-2">
-                        <button><-</button>
+                        <a class="prev icon" onclick='nav_ant("#div5","#div4")'></a>
                     </div>
                     <div class="col-sm-8"></div>
                     <div class="col-sm-2">
@@ -359,5 +367,13 @@
     }
     function nuevo_medicamento(){
         $('#medicamentos').append("<div class='row'><div class='col-sm-1'></div><div class='col-sm-5'><input type='text' name='medicamentos[]' style='width:100%;'/></div><div class='col-sm-2'><a>Quitar</a></div></div>");
+    }
+    function nav_sig(origen,destino){
+        $(origen).animate({left:'-100%'},800);
+        $(destino).animate({left:'0%'},800);
+    }
+    function nav_ant(origen,destino){
+        $(origen).animate({left:'200%'},800);
+        $(destino).animate({left:'0%'},800);
     }
 </script>

@@ -18,7 +18,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="MenuDoctor.php">
+						<a href="lista_pacientes.php">
 							<span class="icon patients"></span>
 							<h3 class="cbp-ig-title">Consultar Paciente</h3>
 						</a>
