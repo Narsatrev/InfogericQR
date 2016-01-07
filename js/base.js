@@ -44,16 +44,20 @@ function showInfo(data) {
 
 function traducirQR(f){
 	for(var i =0;i<f.length;i++){
-        var lector_qr=new FileReader();
-        lector_qr.onload=(function(f) {
-        return function(e){
-            qrcode.callback=showInfo;
-            qrcode.decode(e.target.result);
+        var lector_qr = new FileReader();
+        lector_qr.onload = (function(file) {
+        return function(e) {
+            setTimeout(function(){
+                qrcode.callback=showInfo;
+                qrcode.decode(e.target.result);
+            },250);
         };
         })(f[i]);
         lector_qr.readAsDataURL(f[i]);	
     }
 }
+
+
 
     
 
