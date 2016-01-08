@@ -1,9 +1,11 @@
 <?php
+
     $esDoc=0;
     session_start();
     if(isset($_SESSION['es_doc'])){
         $esDoc=$_SESSION['es_doc'];
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +60,8 @@ require('php/conexion.php');
         <?php echo $datos_paciente['sexo']?><br/>
         Tipo de sangre:
         <?php echo $datos_paciente['tipo_sangre']?><br/>
-        <?php if($esDoc==1){
+        <?php 
+        if($esDoc==1){
             echo "Peso:".$datos_paciente['peso']."<br/>".
             "Talla:".$datos_paciente['talla']."<br/>".
             "Tabaquismo:".$datos_paciente['tabaquismo']."<br/>".
@@ -83,26 +86,27 @@ require('php/conexion.php');
             echo "Teléfono primario:".$contacto['telefono_primario']."<br/>";
             echo "Teléfono opcional:".$contacto['telefono_opcional']."<br/>";
         }                                   
+        if($esDoc==1){
+            echo "Estado Nutricional:".$datos_paciente['estado_nutricional']."<br/>".
+            "Seguro social:".$datos_paciente['seguro_social']."<br/>".
+            "Datos medicos:".$datos_paciente['datos_medicos']."<br/>".
+            "Descripción anexo:".$datos_paciente['descripcion_anexo']."<br/>".
+            "Auxiliar:".$datos_paciente['auxiliar']."<br/>";
+        }
         ?>
-        Estado Nutricional:
-        <?php echo $datos_paciente['estado_nutricional']?><br/>
-        Seguro social:
-        <?php echo $datos_paciente['seguro_social']?><br/>
-        Datos medicos:
-        <?php echo $datos_paciente['datos_medicos']?><br/>
-        Descripción anexo:
-        <?php echo $datos_paciente['descripcion_anexo']?><br/>
-        Auxiliar:
-        <?php echo $datos_paciente['auxiliar']?><br/>
         
+        
+        <button id='button_QR' value="Generar QR">Generar QR</button>
         <div id='qrcode_paciente'></div>
-        
         <script>
-            var qrcode = new QRCode(document.getElementById("qrcode_paciente"), {
-	           width : 100,
-	           height : 100
+            
+            $("#button_QR").click(function(){
+                var qrcode = new QRCode(document.getElementById("qrcode_paciente"), {
+                   width : 100,
+                   height : 100
+                });
+                qrcode.makeCode(window.location.href);
             });
-            qrcode.makeCode(window.location.href);
         </script>
         
         
