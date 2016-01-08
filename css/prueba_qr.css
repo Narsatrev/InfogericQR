@@ -18,11 +18,9 @@ body{
     color:white;
     text-align: center;
 }
-
 #take-picture{
     position: absolute;
     top:-10000px;
-    
 }
 #barra{
     position: absolute;
@@ -58,7 +56,9 @@ body{
 	content: "\e90b";
 }
 #canvas_qr{
- width:100%;
-height:80vmax;
-  border:solid black 1px;
+    position: absolute;
+    top:35vmin;
+    width:100%;
+    height:65vmax;
+    border:solid black 4px;
 }

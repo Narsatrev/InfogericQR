@@ -5,6 +5,8 @@
     if(isset($_SESSION['es_doc'])){
         $esDoc=$_SESSION['es_doc'];
     }
+
+    
     
 ?>
 
@@ -39,9 +41,12 @@
         <meta charset="utf-8"/>
     </head>
 <?php
-    
-
-$id_paciente=$_POST['id_paciente'];
+    $id_paciente="";
+if(isset($_POST['id_paciente'])){
+    $id_paciente=$_POST['id_paciente'];
+}else{
+    $id_paciente=explode('=',$_SERVER['REQUEST_URI'])[1];
+}
 
 require('php/conexion.php');
     $paciente=mysqli_query($conexion,"SELECT * from paciente WHERE id='$id_paciente'");
