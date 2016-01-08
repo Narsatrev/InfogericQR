@@ -22,14 +22,6 @@ body {
     left:0;
     color:#fff;
 }
-#barra_doc_down{
-    position: absolute;
-    background:#d47868;
-    bottom:0;
-    width:100%;
-    height: 8%;
-    left:0;
-}
 
 a {
 	color: #f0f0f0;

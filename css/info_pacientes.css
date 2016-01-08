@@ -43,23 +43,9 @@ tr{
     width:22%;
     height:7vmin;
 }
-.icon:before {
-    color:black;
-	font-family: 'icomoon';
-	font-size:10px;
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
+.detalles{
+    background: #fff;
+    border:0px none;
+    color: #78464b;
+    font-size: 30px;
 }
-.icon{
-	padding:20% 0 0 0;
-	display: block;
-	-webkit-transition: -webkit-transform 0.2s;
-	transition: -moz-transform 0.2s;
-	transition: transform 0.2s;
-}
-

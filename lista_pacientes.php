@@ -41,7 +41,7 @@ for($i=0;$i<$n;$i++){
             "<td>".$direcc."</td>".
             "<td><form action='detallesPaciente.php?pac=".$id."' method='post' class='forma_detalles_paciente'>".
             "<input type='hidden' value='".$id."' name='id_paciente'/>".
-            "<input type='submit' class='icon plus' value=''/></form></td>";
+            "<input type='submit' class='detalles' value='+'/></form></td>";
         echo "</tr>";
     }
 }

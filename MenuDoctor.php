@@ -22,8 +22,6 @@
         <div id="barra_doc_up">
             <a class="icon logout" href="php/Logout.php"></a>
         </div>
-        <div id="barra_doc_down">
-        </div>
 		<div class="container">
 			<div class="main">
 				<ul class="cbp-ig-grid grid2">
