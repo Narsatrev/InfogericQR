@@ -1,3 +1,11 @@
+<?php
+    $esDoc=0;
+    session_start();
+    if(isset($_SESSION['es_doc'])){
+        $esDoc=$_SESSION['es_doc'];
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -50,25 +58,18 @@ require('php/conexion.php');
         <?php echo $datos_paciente['sexo']?><br/>
         Tipo de sangre:
         <?php echo $datos_paciente['tipo_sangre']?><br/>
-        Peso:
-        <?php echo $datos_paciente['peso']?><br/>
-        Talla:
-        <?php echo $datos_paciente['talla']?><br/>
-        Tabaquismo:
-        <?php echo $datos_paciente['tabaquismo']?><br/>
-        Escolaridad (años):
-        <?php echo $datos_paciente['escolaridad']?><br/>
-        Estado civil:
-        <?php echo $datos_paciente['estado_civil']?><br/>
-        Número de medicamentos:
-        <?php echo $datos_paciente['numero_medicamentos']?><br/>
-        Última actualización de medicamentos:
-        <?php echo $datos_paciente['fecha_actual_medicamentos']?><br/>
-        Dirección:
-        <?php echo $datos_paciente['direccion']?><br/>
+        <?php if($esDoc==1){
+            echo "Peso:".$datos_paciente['peso']."<br/>".
+            "Talla:".$datos_paciente['talla']."<br/>".
+            "Tabaquismo:".$datos_paciente['tabaquismo']."<br/>".
+            "Escolaridad (años):".$datos_paciente['escolaridad']."<br/>".
+            "Estado civil:".$datos_paciente['estado_civil']."<br/>".
+            "Número de medicamentos:".$datos_paciente['numero_medicamentos']."<br/>".
+            "Última actualización de medicamentos:".$datos_paciente['fecha_actual_medicamentos']."<br/>".
+            "Dirección:".$datos_paciente['direccion']."<br/>";
+        }
         
         
-        <?php            
         $id_contacto=$datos_paciente['contacto'];
 
         $stringx="SELECT * from contacto WHERE id='$id_contacto';";
