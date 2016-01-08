@@ -15,16 +15,24 @@ body {
 }
 #barra_doc_up{
     position: absolute;
-    background:#d47868;
+    background:#9c4948;
     top:0;
     width:100%;
     height: 8%;
     left:0;
-    color:#fff;
+    color:white;
+    font-size: 5vmin;
+    font-family: "Arial";
+    padding-left: 4vmin;
+    padding-top:10px;
 }
 #barra_doc_down{
+    font:"Arial";
+    color:white;
+    font-size: 2vmin;
+    text-align: center;
     position: absolute;
-    background:#d47868;
+    background:#9c4948;
     bottom:0;
     width:100%;
     height: 8%;

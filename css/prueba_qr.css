@@ -26,7 +26,8 @@ body{
 }
 #barra{
     position: absolute;
-    font-size:8vmin;
+    font-size:4vmin;
+    width:100%;
     background-color:#78464b;
     text-align: center;
     bottom: 0;
