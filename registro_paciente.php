@@ -7,6 +7,7 @@
         <script src="frameworks/jquery-2.1.4.js"></script>
     </head>
     <body>
+        <div id="margen_top" class="margen"></div>
         <form id="registro"  method="post" action="MenuDoctor.php" >
             <div id="div1" class="div-login" style="left:5%;">
                 <div class="row">
@@ -188,7 +189,6 @@
                     </div>
                     </div>
                 </div>
-            </div>
             <div id="div4" class="div-login" >
                 <div class="row">
                     <div class="col-sm-3">
@@ -253,7 +253,7 @@
                         <label>Emergencias Recientes</label>
                     </div>
                     <div class="col-sm-2">
-                       <a>Agregar</a>
+                       <a onclick="nuevo_emergencia()">Agregar</a>
                     </div>
                 </div>
                   <div class="row">
@@ -265,11 +265,12 @@
                     </div>
                     <div class="col-sm-8"></div>
                     <div class="col-sm-2">
-                        <input type="submit" value="√">
+                        <button class="icon checked"></button>
                     </div>
                 </div>
             </div>   
         </form>
+        <div id="margen_bot" class="margen"></div>
     </body>
 </html>
 <script>
@@ -366,6 +367,9 @@
     }
     function nuevo_medicamento(){
         $('#medicamentos').append("<div class='row'><div class='col-sm-1'></div><div class='col-sm-5'><input type='text' name='medicamentos[]' style='width:100%;'/></div><div class='col-sm-2'><a>Quitar</a></div></div>");
+    }
+    function nuevo_emergencia(){
+        $('#emergencias_recientes').append("<div class='row'><div class='col-sm-1'>Fecha: </div><div class='col-sm-3'><input type='date' name='emergencia_fecha[]' style='width:100%;'/></div><div class='col-sm-2'>Descripción: </div><div class='col-sm-3'><input type='text' name='emergencia_descripcion[]' style='width:100%;'/></div><div class='col-sm-2'><a>Quitar</a></div></div>");
     }
     function nav_sig(origen,destino){
         $(origen).animate({left:'-100%'},800);
