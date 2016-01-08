@@ -6,8 +6,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 		<title>Bienvenido</title>
 		<link rel="stylesheet" type="text/css" href="css/home.css" />
+        
 	</head>
 	<body>
+        <div id="barra_doc_up">
+            <a class="icon logout" href="LoginDoctorVista.php"></a>
+        </div>
+        <div id="barra_doc_down">
+        </div>
 		<div class="container">
 			<div class="main">
 				<ul class="cbp-ig-grid grid2">
