@@ -11,17 +11,19 @@ require('php/conexion.php');
 ?>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/info_pacientes.css"/>
         <title>
             Lista Pacientes        
         </title>
     </head>
     <body>
+        <div id="barra"><h2>Lista de pacientes</h2></div>
         <table>
             <tr>
                 <th>Nombre</th>
                 <th>Edad</th>
-                <th>Ultima actualizacion</th>
-                <th>Direccion</th>
+                <th id="act">Ultima actualizacion</th>
+                <th id="dir">Direccion</th>
                 <th>Detalles</th>
             </tr>
             <?php
@@ -39,7 +41,7 @@ for($i=0;$i<$n;$i++){
             "<td>".$direcc."</td>".
             "<td><form action='detallesPaciente.php?pac=".$id."' method='post' class='forma_detalles_paciente'>".
             "<input type='hidden' value='".$id."' name='id_paciente'/>".
-            "<input type='submit' value='Detalles'/></form></td>";
+            "<input type='submit' class='icon plus' value=''/></form></td>";
         echo "</tr>";
     }
 }

@@ -57,7 +57,7 @@ a:hover {
 
 /* grid item */
 .cbp-ig-grid li {
-	width:50%;
+	width: 33%;
     height:90vmin;
 	float: left;
 	text-align: center;
@@ -71,6 +71,7 @@ a:hover {
 	display: block;
 	height: 100%;
 	color: #9c4948;
+    padding-top: 10%;
 	-webkit-transition: background 0.2s;
 	-moz-transition: background 0.2s;
 	transition: background 0.2s;
