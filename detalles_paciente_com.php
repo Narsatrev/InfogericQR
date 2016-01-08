@@ -41,15 +41,7 @@
         <meta charset="utf-8"/>
     </head>
 <?php
-    $id_paciente="";
-if($esDoc!=0){
-    if(isset($_POST['id_paciente'])){
-        $id_paciente=$_POST['id_paciente'];
-    }
-}
-else{
-    echo "<form id='forma_id_pat_common' method='post' action='detalles_paciente_com.php'><input type='hidden' value='123' id='arrex'/><input type='hidden' id='id_patient_common' name='id_pat'/></div>";
-}
+$id_paciente=$_POST["id_pat"];
 
 require('php/conexion.php');
     $paciente=mysqli_query($conexion,"SELECT * from paciente WHERE id='$id_paciente'");
@@ -108,12 +100,9 @@ require('php/conexion.php');
         if($esDoc==1){
             echo "<hr><div class='row'><div class='col-sm-3'>Estado Nutricional:</div> <div class='col-sm-2'>".$datos_paciente['estado_nutricional']."</div>".
             "<div class='col-sm-2'>Seguro social:</div> <div class='col-sm-2'>".$datos_paciente['seguro_social']."</div></div>".
-                            "<div class='row'><div class='col-sm-2'>Medicinas:</div><div class='col-sm-5'>".$datos_paciente['auxiliar']."</div></div>";
             "<div class='row'><div class='col-sm-3'>Datos medicos:</div><div class='col-sm-5'>".$datos_paciente['datos_medicos']."</div></div>".
             "<div class='row'><div class='col-sm-3'>Anexo:</div><div class='col-sm-5'>".$datos_paciente['descripcion_anexo']."</div></div>".
             "<div class='row'><div class='col-sm-2'>Auxiliares:</div><div class='col-sm-5'>".$datos_paciente['auxiliar']."</div></div>";
-            
-            
         }
         ?>
         
@@ -128,14 +117,6 @@ require('php/conexion.php');
                    height : 100
                 });
                 qrcode.makeCode(window.location.href);
-            });
-            
-            $(document).ready(function(){
-                console.log($("#arrex").val());
-                if($("#arrex").val()=='123'){
-                    $("#id_patient_common").val(window.location.href.split('=')[1]);
-                    $("#forma_id_pat_common").submit();
-                }
             });
         </script>
         
