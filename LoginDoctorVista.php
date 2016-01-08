@@ -5,8 +5,8 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="Frameworks/bootstrap-3.3.4-dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="Frameworks/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="frameworks/bootstrap-3.3.4-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="frameworks/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
         <link href="css/bootstrap-toggle.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/login.css" />
     </head>
