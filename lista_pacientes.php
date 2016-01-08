@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
+
 require('php/conexion.php');
+
     $paciente=mysqli_query($conexion,"SELECT id,nombre,edad,fecha_actual_medicamentos,direccion   from paciente");
     $n=mysqli_num_rows($paciente);
     if(!$n>0){

@@ -27,8 +27,8 @@
     </head>
 <?php
     
-$link_paciente = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-$id_paciente=explode("=",$link_paciente)[1];
+
+$id_paciente=$_POST['id_paciente'];
 
 require('php/conexion.php');
     $paciente=mysqli_query($conexion,"SELECT * from paciente WHERE id='$id_paciente'");
@@ -77,12 +77,11 @@ require('php/conexion.php');
         if(!$nc>0){
             echo "El paciente no tiene datos de contacto.</br>";
         }else{
-            
             $contacto=mysqli_fetch_assoc($datos_contacto);                
             echo "Nombre del contacto:".$contacto['nombre']."<br/>";
             echo "Teléfono primario:".$contacto['telefono_primario']."<br/>";
             echo "Teléfono opcional:".$contacto['telefono_opcional']."<br/>";
-        }                                        
+        }                                   
         ?>
         Estado Nutricional:
         <?php echo $datos_paciente['estado_nutricional']?><br/>
