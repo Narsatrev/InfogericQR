@@ -14,6 +14,20 @@ body {
     overflow-x: hidden;
     font-size:20px;
 }
+.datos .row{
+    margin-top:2%;
+}
+.datos{
+    position: absolute;
+    top:8%;
+    width:100%;
+    padding-left:15%;
+}
+#button_QR{
+    position: absolute;
+    font-size:10vmin;
+    left:30%;
+}
 .margen{
     position: absolute;
     background:#9c4948;

@@ -14,6 +14,9 @@
         <title>
             <?php echo $datos_paciente['nombre']?>
         </title>
+        <link rel="stylesheet" href="frameworks/bootstrap-3.3.4-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="frameworks/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="css/cuestionario.css" />
         <script src="frameworks/jquery-2.1.4.js"></script>
         <script type="text/javascript" src="frameworks/js-qr/grid.js"></script>
         <script type="text/javascript" src="frameworks/js-qr/version.js"></script>
@@ -52,24 +55,32 @@ require('php/conexion.php');
 ?>
 
     <body>
-        Nombre:
-        <?php echo $datos_paciente['nombre']?><br/>
-        Edad:
-        <?php echo $datos_paciente['edad']?><br/>
-        Sexo:
-        <?php echo $datos_paciente['sexo']?><br/>
-        Tipo de sangre:
-        <?php echo $datos_paciente['tipo_sangre']?><br/>
+        <div class="margen" id="#margen_top"></div>
+        <div class="datos">
+            <div class="row">
+                <div class="col-sm-2"> Nombre:</div>
+                <div class="col-sm-4"><?php echo $datos_paciente['nombre']?></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3"> Edad:</div>
+                <div class="col-sm-2"> <?php echo $datos_paciente['edad']?></div>
+                <div class="col-sm-2"> Sexo:</div>
+                <div class="col-sm-2"><?php echo $datos_paciente['sexo']?></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">Tipo de sangre:</div>
+                <div class="col-sm-2"><?php echo $datos_paciente['tipo_sangre']?></div>
+            
         <?php 
         if($esDoc==1){
-            echo "Peso:".$datos_paciente['peso']."<br/>".
-            "Talla:".$datos_paciente['talla']."<br/>".
-            "Tabaquismo:".$datos_paciente['tabaquismo']."<br/>".
-            "Escolaridad (años):".$datos_paciente['escolaridad']."<br/>".
-            "Estado civil:".$datos_paciente['estado_civil']."<br/>".
-            "Número de medicamentos:".$datos_paciente['numero_medicamentos']."<br/>".
-            "Última actualización de medicamentos:".$datos_paciente['fecha_actual_medicamentos']."<br/>".
-            "Dirección:".$datos_paciente['direccion']."<br/>";
+            echo "<div class='col-sm-2'>Peso:</div> <div class='col-sm-2'>".$datos_paciente['peso']."</div></div>".
+            "<div class='row'><div class='col-sm-3'>Talla:</div> <div class='col-sm-2'>".$datos_paciente['talla']."</div>".
+            "<div class='col-sm-2'>Tabaquismo: </div> <div class='col-sm-1'>".$datos_paciente['tabaquismo']."</div></div>".
+            "<div class='row'><div class='col-sm-3'>Escolaridad(años):</div> <div class='col-sm-2'>".$datos_paciente['escolaridad']."</div>".
+            "<div class='col-sm-2'>Estado civil:</div> <div class='col-sm-2'>".$datos_paciente['estado_civil']."</div></div>".
+            "<div class='row'><div class='col-sm-3'>Numero de Medicamentos:</div> <div class='col-sm-2'>".$datos_paciente['numero_medicamentos']."</div>".
+            "<div class='col-sm-2'>Ultima actualizacion:</div> <div class='col-sm-2'>".$datos_paciente['fecha_actual_medicamentos']."</div></div>".
+            "<div class='row'><div class='col-sm-3'>Dirección:</div> <div class='col-sm-5'>".$datos_paciente['direccion']."</div></div>";
         }
         
         
@@ -82,22 +93,22 @@ require('php/conexion.php');
             echo "El paciente no tiene datos de contacto.</br>";
         }else{
             $contacto=mysqli_fetch_assoc($datos_contacto);                
-            echo "Nombre del contacto:".$contacto['nombre']."<br/>";
-            echo "Teléfono primario:".$contacto['telefono_primario']."<br/>";
-            echo "Teléfono opcional:".$contacto['telefono_opcional']."<br/>";
+            echo "<hr/><div class='row'><div class='col-sm-3'>Nombre de contacto:</div> <div class='col-sm-4'>".$contacto['nombre']."</div></div>";
+            echo "<div class='row'><div class='col-sm-3'>Teléfono primario:</div> <div class='col-sm-2'>".$contacto['telefono_primario']."</div>";
+            echo "<div class='col-sm-2'>Teléfono opcional:</div> <div class='col-sm-2'>".$contacto['telefono_opcional']."</div></div>";
         }                                   
         if($esDoc==1){
-            echo "Estado Nutricional:".$datos_paciente['estado_nutricional']."<br/>".
-            "Seguro social:".$datos_paciente['seguro_social']."<br/>".
-            "Datos medicos:".$datos_paciente['datos_medicos']."<br/>".
-            "Descripción anexo:".$datos_paciente['descripcion_anexo']."<br/>".
-            "Auxiliar:".$datos_paciente['auxiliar']."<br/>";
+            echo "<hr><div class='row'><div class='col-sm-3'>Estado Nutricional:</div> <div class='col-sm-2'>".$datos_paciente['estado_nutricional']."</div>".
+            "<div class='col-sm-2'>Seguro social:</div> <div class='col-sm-2'>".$datos_paciente['seguro_social']."</div></div>".
+            "<div class='row'><div class='col-sm-3'>Datos medicos:</div><div class='col-sm-5'>".$datos_paciente['datos_medicos']."</div></div>".
+            "<div class='row'><div class='col-sm-3'>Anexo:</div><div class='col-sm-5'>".$datos_paciente['descripcion_anexo']."</div></div>".
+            "<div class='row'><div class='col-sm-2'>Auxiliares:</div><div class='col-sm-5'>".$datos_paciente['auxiliar']."</div></div>";
         }
         ?>
         
-        
         <button id='button_QR' value="Generar QR">Generar QR</button>
         <div id='qrcode_paciente'></div>
+            </div>
         <script>
             
             $("#button_QR").click(function(){
