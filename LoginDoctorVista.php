@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    $_SESSION['es_doc']=1;
+    
 ?>
 
 <html>
@@ -11,7 +10,7 @@
         <link href="css/bootstrap-toggle.min.css" rel="stylesheet">
     </head>
     <body>
-        <form id="login" method="post" action="MenuDoctor.php">
+        <form id="login" method="post" action="php/Login.php">
             <label>Usuario</label>
             <input type="text" value="" id="user">
             <label>Contraseña</label>

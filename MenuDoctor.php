@@ -1,3 +1,13 @@
+<?php
+    $esDoc=0;
+    session_start();
+    if(isset($_SESSION['es_doc'])){
+        $esDoc=$_SESSION['es_doc'];
+    }
+    if($esDoc!=1){
+        header("Location: index.html");
+    }
+?>
 
 <html>
 	<head>
@@ -10,7 +20,7 @@
 	</head>
 	<body>
         <div id="barra_doc_up">
-            <a class="icon logout" href="LoginDoctorVista.php"></a>
+            <a class="icon logout" href="php/Logout.php"></a>
         </div>
         <div id="barra_doc_down">
         </div>
