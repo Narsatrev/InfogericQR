@@ -42,6 +42,7 @@ function showInfo(data) {
             $("#forma_oculta_mistica").attr('action',data);
             $("#forma_oculta_mistica").submit();
             
+            window.location.replace(data);
         }else{
             alert("El código no es una página web.");    
         }

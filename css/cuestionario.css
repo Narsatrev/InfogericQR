@@ -35,9 +35,12 @@ body {
     height:8%;
 }
 #margen_top{
+<<<<<<< HEAD
     font-size: 5vmin;
     color:white;
     padding-left: 10%;
+=======
+>>>>>>> 647981e80f49ce9e47fe85e7921e5ea304d4f166
     top:0%;
 }
 #margen_bot{

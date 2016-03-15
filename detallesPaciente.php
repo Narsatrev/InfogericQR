@@ -48,14 +48,22 @@ if($esDoc!=0){
     }
 }
 else{
+<<<<<<< HEAD
   echo "<form id='forma_id_pat_common' method='post' action='detalles_paciente_com.php'><input type='hidden' value='123' id='arrex'/><input type='hidden' id='id_patient_common' name='id_pat'/></div>";
+=======
+    echo "<form id='forma_id_pat_common' method='post' action='detalles_paciente_com.php'><input type='hidden' value='123' id='arrex'/><input type='hidden' id='id_patient_common' name='id_pat'/></div>";
+>>>>>>> 647981e80f49ce9e47fe85e7921e5ea304d4f166
 }
 
 require('php/conexion.php');
     $paciente=mysqli_query($conexion,"SELECT * from paciente WHERE id='$id_paciente'");
+<<<<<<< HEAD
 
     $n=mysqli_num_rows($paciente);
 echo $n;
+=======
+    $n=mysqli_num_rows($paciente);
+>>>>>>> 647981e80f49ce9e47fe85e7921e5ea304d4f166
     if(!$n>0){
         echo "El paciente no existe";
     }
@@ -65,9 +73,19 @@ echo $n;
 ?>
 
     <body>
+<<<<<<< HEAD
         <div class="margen" id="margen_top"><?php echo $datos_paciente['nombre'] ?></div>
         <div class="datos">
             <div class="row">
+=======
+        <div class="margen" id="#margen_top"></div>
+        <div class="datos">
+            <div class="row">
+                <div class="col-sm-2"> Nombre:</div>
+                <div class="col-sm-4"><?php echo $datos_paciente['nombre']?></div>
+            </div>
+            <div class="row">
+>>>>>>> 647981e80f49ce9e47fe85e7921e5ea304d4f166
                 <div class="col-sm-3"> Edad:</div>
                 <div class="col-sm-2"> <?php echo $datos_paciente['edad']?></div>
                 <div class="col-sm-2"> Sexo:</div>
@@ -104,6 +122,7 @@ echo $n;
             echo "<div class='col-sm-2'>Teléfono opcional:</div> <div class='col-sm-2'>".$contacto['telefono_opcional']."</div></div>";
         }                                   
         if($esDoc==1){
+<<<<<<< HEAD
             $b="";
             $arr=explode("*",$datos_paciente['medicinas']);
              for($i=0;$i<sizeof($arr);$i++){
@@ -116,6 +135,14 @@ echo $n;
             "<div class='row'><div class='col-sm-3'>Anexo:</div><div class='col-sm-5'>".$datos_paciente['descripcion_anexo']."</div></div>"."<img src='http://www.crzelarayan.com.ar/DICOM/jpg/dxs/Torax1.jpg' height='200' width='200'>".
             "<div class='row'><div class='col-sm-2'>Auxiliares:</div><div class='col-sm-5'>".$datos_paciente['auxiliar']."</div></div>";
             echo $a;
+=======
+            echo "<hr><div class='row'><div class='col-sm-3'>Estado Nutricional:</div> <div class='col-sm-2'>".$datos_paciente['estado_nutricional']."</div>".
+            "<div class='col-sm-2'>Seguro social:</div> <div class='col-sm-2'>".$datos_paciente['seguro_social']."</div></div>".
+                            "<div class='row'><div class='col-sm-2'>Medicinas:</div><div class='col-sm-5'>".$datos_paciente['auxiliar']."</div></div>";
+            "<div class='row'><div class='col-sm-3'>Datos medicos:</div><div class='col-sm-5'>".$datos_paciente['datos_medicos']."</div></div>".
+            "<div class='row'><div class='col-sm-3'>Anexo:</div><div class='col-sm-5'>".$datos_paciente['descripcion_anexo']."</div></div>".
+            "<div class='row'><div class='col-sm-2'>Auxiliares:</div><div class='col-sm-5'>".$datos_paciente['auxiliar']."</div></div>";
+>>>>>>> 647981e80f49ce9e47fe85e7921e5ea304d4f166
             
             
         }

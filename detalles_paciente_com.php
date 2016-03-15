@@ -5,6 +5,12 @@
     if(isset($_SESSION['es_doc'])){
         $esDoc=$_SESSION['es_doc'];
     }
+<<<<<<< HEAD
+=======
+
+    
+    
+>>>>>>> 647981e80f49ce9e47fe85e7921e5ea304d4f166
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +72,11 @@ require('php/conexion.php');
             </div>
             <div class="row">
                 <div class="col-sm-3">Tipo de sangre:</div>
+<<<<<<< HEAD
                 <div class="col-sm-2"><?php echo $datos_paciente['tipo_sangre']?></div></div>
+=======
+                <div class="col-sm-2"><?php echo $datos_paciente['tipo_sangre']?></div>
+>>>>>>> 647981e80f49ce9e47fe85e7921e5ea304d4f166
             
         <?php 
         if($esDoc==1){
@@ -90,7 +100,11 @@ require('php/conexion.php');
             echo "El paciente no tiene datos de contacto.</br>";
         }else{
             $contacto=mysqli_fetch_assoc($datos_contacto);                
+<<<<<<< HEAD
             echo "<hr style='position:relative;left:-10%;'><div class='row'><div class='col-sm-3'>Nombre de contacto:</div> <div class='col-sm-4'>".$contacto['nombre']."</div></div>";
+=======
+            echo "<hr/><div class='row'><div class='col-sm-3'>Nombre de contacto:</div> <div class='col-sm-4'>".$contacto['nombre']."</div></div>";
+>>>>>>> 647981e80f49ce9e47fe85e7921e5ea304d4f166
             echo "<div class='row'><div class='col-sm-3'>Teléfono primario:</div> <div class='col-sm-2'>".$contacto['telefono_primario']."</div>";
             echo "<div class='col-sm-2'>Teléfono opcional:</div> <div class='col-sm-2'>".$contacto['telefono_opcional']."</div></div>";
         }                                   
@@ -103,6 +117,23 @@ require('php/conexion.php');
         }
         ?>
         
+<<<<<<< HEAD
+=======
+        <button id='button_QR' value="Generar QR">Generar QR</button>
+        <div id='qrcode_paciente'></div>
+            </div>
+        <script>
+            
+            $("#button_QR").click(function(){
+                var qrcode = new QRCode(document.getElementById("qrcode_paciente"), {
+                   width : 100,
+                   height : 100
+                });
+                qrcode.makeCode(window.location.href);
+            });
+        </script>
+        
+>>>>>>> 647981e80f49ce9e47fe85e7921e5ea304d4f166
         
     </body>
 </html>
