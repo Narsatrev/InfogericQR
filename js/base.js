@@ -42,6 +42,39 @@ function showInfo(data) {
             $("#forma_oculta_mistica").attr('action',data);
             $("#forma_oculta_mistica").submit();
             
+                    ////////DESDE AQUI IMPORTADO DE MAPA.JS
+              if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                  var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                  };            
+                    ////enviar a servidor datos de localizacion
+                    $("#pos_lat").val(pos.lat);
+                    $("#pos_long").val(pos.lng);
+                    var lat=$("#pos_lat").val();
+                    var lng=$("#pos_long").val();
+
+                    var t= new Date();
+
+                    $.ajax({
+                        type:"POST",
+                        url:"alerta.php",
+                        data:{
+                            'lat':lat,
+                            'lng':lng,
+                            'tiempo':t
+                             },
+                        cache:false,
+                        success:function(data){  
+                            alert(data);
+                        }
+                       });
+                    ////////DESDE AQUI IMPORTADO DE MAPA.JS
+                });
+              }
+                                                         
+            
             window.location.replace(data);
         }else{
             alert("El código no es una página web.");    

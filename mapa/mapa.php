@@ -32,7 +32,8 @@
       });
         
       var infoWindow = new google.maps.InfoWindow({map: map});
-
+        
+    ////////HASTA AQUI VA EN BASE.JS    
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
           var pos = {
@@ -59,7 +60,8 @@
                 success:function(data){  
                     alert(data);
                 }
-               }); 
+               });
+            ////////HASTA AQUI VA EN BASE.JS
             
           infoWindow.setPosition(pos);
           infoWindow.setContent('Tu lugar zi');
