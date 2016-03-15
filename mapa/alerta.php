@@ -6,7 +6,7 @@ $tiempo=$_POST['tiempo'];
 
 $m="La pulsera de su familiar fue escaneada en la siguiente fecha y hora:\n ".$tiempo."\n";
 $m.=" en las siguientes coordenadas geográficas:\n Lat: ".$latitud." Long: ".$longitud;
-$m.="Por favor visite el siguiente link "
+$m.="Por favor visite el siguiente link :";
 
 $dest="david.manzanarez.v@gmail.com,narsatrev@yahoo.com,loresfca.flores1@gmail.com";
 

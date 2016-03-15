@@ -33,6 +33,7 @@ function mandarPaginaPaciente(){
 function showInfo(data) {
     if(data=="error decoding QR Code"){
         alert("Su imagen no contiene un código QR. Inténtelo de nuevo");
+        location.reload();
     }else{
         if(data.substr(0,3)=='www'||data.substr(0,4)=='http'){
             var id=data.split("=")[1];
@@ -40,9 +41,8 @@ function showInfo(data) {
             $("#id_paciente").val(id);
             console.log($("#id_paciente").val());
             $("#forma_oculta_mistica").attr('action',data);
-            $("#forma_oculta_mistica").submit();
-            
-                    ////////DESDE AQUI IMPORTADO DE MAPA.JS
+                        
+            ////////DESDE AQUI IMPORTADO DE MAPA.JS
               if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
                   var pos = {
@@ -59,7 +59,7 @@ function showInfo(data) {
 
                     $.ajax({
                         type:"POST",
-                        url:"alerta.php",
+                        url:"mapa/alerta.php",
                         data:{
                             'lat':lat,
                             'lng':lng,
@@ -68,16 +68,20 @@ function showInfo(data) {
                         cache:false,
                         success:function(data){  
                             alert(data);
+                            //
+                            $("#forma_oculta_mistica").submit();
+                            //
                         }
-                       });
-                    ////////DESDE AQUI IMPORTADO DE MAPA.JS
+                       });            
                 });
               }
-                                                         
+            ////////DESDE AQUI IMPORTADO DE MAPA.JS
             
-            window.location.replace(data);
+                                                                     
+//            window.location.replace(data);
         }else{
             alert("El código no es una página web.");    
+            location.reload();
         }
     }
 }

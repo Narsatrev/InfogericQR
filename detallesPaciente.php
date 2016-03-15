@@ -14,7 +14,7 @@
 <html>
     <head>
         <title>
-            <?php echo $datos_paciente['nombre']?>
+            Datos Paciente
         </title>
         <link rel="stylesheet" href="frameworks/bootstrap-3.3.4-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="frameworks/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
