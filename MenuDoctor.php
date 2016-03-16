@@ -28,7 +28,7 @@
                     <li>
 						<a href="prueba_qr.html">
 							<span class="icon qr"></span>
-							<h3 class="cbp-ig-title">Emergencia</h3>
+							<h3 class="cbp-ig-title">Obtener Historial</h3>
 						</a>
 					</li>
 					<li>

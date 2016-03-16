@@ -7,7 +7,9 @@
         <script src="frameworks/jquery-2.1.4.js"></script>
     </head>
     <body>
-        <div id="margen_top" class="margen"></div>
+        <div id="margen_top" class="margen">
+            <a class="home icon" href='MenuDoctor.php'></a>
+        </div>
         <form id="registro"  method="post" action="MenuDoctor.php" >
             <div id="div1" class="div-login" style="left:5%;">
                 <div class="row">
@@ -62,7 +64,6 @@
                 </div>
                 <div class="row">
                      <div class="col-sm-2">
-                        <a class="home icon" href='MenuDoctor.php'></a>
                     </div>
                     <div class="col-sm-8"></div>
                     <div class="col-sm-2">

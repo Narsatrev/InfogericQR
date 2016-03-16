@@ -8,6 +8,13 @@
 	font-weight: normal;
 	font-style: normal;
 }
+.icon{
+	padding:20% 0 0 0;
+	display: block;
+	-webkit-transition: -webkit-transform 0.2s;
+	transition: -moz-transform 0.2s;
+	transition: transform 0.2s;
+}
 body {
     font-family: 'Lato', Calibri, Arial, sans-serif;
     color: #78464b;
@@ -60,19 +67,13 @@ body {
 	text-decoration: none;
 }
 .home{
-	color: #d47868;
+    padding-top:0;
+	color: #ffffff;
 	text-decoration: none;
 }
 .home:hover{
-	color: #78464b;
+	color: #d47868;
 	text-decoration: none;
-}
-.icon{
-	padding:20% 0 0 0;
-	display: block;
-	-webkit-transition: -webkit-transform 0.2s;
-	transition: -moz-transform 0.2s;
-	transition: transform 0.2s;
 }
 button{
     background: #fff;
@@ -102,6 +103,7 @@ button:hover{
 	content: "\e909";
 }
 .home:before {
+    font-size:1.5em;
 	content: "\f015";
 }
 .checked:before {
