@@ -14,7 +14,7 @@
 <html>
     <head>
         <title>
-            <?php echo $datos_paciente['nombre']?>
+            Datos Paciente
         </title>
         <link rel="stylesheet" href="frameworks/bootstrap-3.3.4-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="frameworks/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
@@ -49,6 +49,7 @@ if($esDoc!=0){
 }
 else{
   echo "<form id='forma_id_pat_common' method='post' action='detalles_paciente_com.php'><input type='hidden' value='123' id='arrex'/><input type='hidden' id='id_patient_common' name='id_pat'/></div>";
+    echo "<form id='forma_id_pat_common' method='post' action='detalles_paciente_com.php'><input type='hidden' value='123' id='arrex'/><input type='hidden' id='id_patient_common' name='id_pat'/></div>";
 }
 
 require('php/conexion.php');
@@ -56,6 +57,7 @@ require('php/conexion.php');
 
     $n=mysqli_num_rows($paciente);
 echo $n;
+    $n=mysqli_num_rows($paciente);
     if(!$n>0){
         echo "El paciente no existe";
     }
@@ -67,6 +69,13 @@ echo $n;
     <body>
         <div class="margen" id="margen_top"><?php echo $datos_paciente['nombre'] ?></div>
         <div class="datos">
+            <div class="row">
+        <div class="margen" id="#margen_top"></div>
+        <div class="datos">
+            <div class="row">
+                <div class="col-sm-2"> Nombre:</div>
+                <div class="col-sm-4"><?php echo $datos_paciente['nombre']?></div>
+            </div>
             <div class="row">
                 <div class="col-sm-3"> Edad:</div>
                 <div class="col-sm-2"> <?php echo $datos_paciente['edad']?></div>
@@ -116,6 +125,12 @@ echo $n;
             "<div class='row'><div class='col-sm-3'>Anexo:</div><div class='col-sm-5'>".$datos_paciente['descripcion_anexo']."</div></div>"."<img src='http://www.crzelarayan.com.ar/DICOM/jpg/dxs/Torax1.jpg' height='200' width='200'>".
             "<div class='row'><div class='col-sm-2'>Auxiliares:</div><div class='col-sm-5'>".$datos_paciente['auxiliar']."</div></div>";
             echo $a;
+            echo "<hr><div class='row'><div class='col-sm-3'>Estado Nutricional:</div> <div class='col-sm-2'>".$datos_paciente['estado_nutricional']."</div>".
+            "<div class='col-sm-2'>Seguro social:</div> <div class='col-sm-2'>".$datos_paciente['seguro_social']."</div></div>".
+                            "<div class='row'><div class='col-sm-2'>Medicinas:</div><div class='col-sm-5'>".$datos_paciente['auxiliar']."</div></div>";
+            "<div class='row'><div class='col-sm-3'>Datos medicos:</div><div class='col-sm-5'>".$datos_paciente['datos_medicos']."</div></div>".
+            "<div class='row'><div class='col-sm-3'>Anexo:</div><div class='col-sm-5'>".$datos_paciente['descripcion_anexo']."</div></div>".
+            "<div class='row'><div class='col-sm-2'>Auxiliares:</div><div class='col-sm-5'>".$datos_paciente['auxiliar']."</div></div>";
             
             
         }
@@ -125,6 +140,41 @@ echo $n;
         <div id='qrcode_paciente'></div>
             </div>
         <script>
+            
+            ////////DESDE AQUI IMPORTADO DE MAPA.JS
+              if(navigator.geolocation){
+                  
+                navigator.geolocation.getCurrentPosition(function(position) {
+                  var pos={
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                  };            
+                    ////enviar a servidor datos de localizacion
+                    $("#pos_lat").val(pos.lat);
+                    $("#pos_long").val(pos.lng);
+                    var lat=$("#pos_lat").val();
+                    var lng=$("#pos_long").val();
+
+                    var t= new Date();
+                    console.log("obtuve posicion despues de allocate datos");
+                    $.ajax({
+                        type:"POST",
+                        url:"mapa/alerta.php",
+                        data:{
+                            'lat':lat,
+                            'lng':lng,
+                            'tiempo':t
+                             },
+                        cache:false,
+                        success:function(data){  
+                            alert(data);
+                        }
+                       });            
+                });
+              }else{
+                console.log("No se pudo obtener la ubicacion :(. ");
+              }
+            ////////DESDE AQUI IMPORTADO DE MAPA.JS
             
             $("#button_QR").click(function(){
                 var qrcode = new QRCode(document.getElementById("qrcode_paciente"), {

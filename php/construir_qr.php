@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Foto QR</title>
+        <link rel="stylesheet" href="css/base.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/prueba_qr.css" type="text/css" media="screen">
         <script src="frameworks/jquery-2.1.4.js"></script>
         <script type="text/javascript" src="frameworks/js-qr/grid.js"></script>
@@ -23,31 +24,17 @@
         <script type="text/javascript" src="frameworks/js-qr/alignpat.js"></script>
         <script type="text/javascript" src="frameworks/js-qr/databr.js"></script>
         <script type="text/javascript" src="frameworks/js-qr-gen/qrcode.js"></script>
+        
     </head>
-
-    <body>
-        <div class="container">
-            <div id="big_button" class="icon photo"></div>
-            <section class="main-content">                
-                <form id="form_send_qr" method="post" action="php/handle_qr_input.php" enctype="multipart/form-data">
-                    <input name="qr_code_img" id="take-picture" type="file" accept="image/*" onchange="upload(this.files[0]); traducirQR(this.files);">
-                    <input type="hidden" name="filename_qr" id="filename_qr" />
-                    <canvas id="canvas_qr"></canvas><br/>
-                </form>
-                <form id="forma_oculta_mistica" method='post' action='' method="post">
-                    <input type="hidden" id="id_paciente" name='id_paciente'/>
-                    <input type="hidden" id="pos_lat"/>
-                    <input type="hidden" id="pos_long"/> 
-                    <input type="hidden" id="tiempo"/> 
-                </form>
-                
-                         
-                
-            </section>
-        </div>        
-        <div id='qrcode'></div>
-        <div id="barra"> Presione la cámara para escanear el código.<br/>Inicie sesión para info más detallada.</div>
-        <script src="js/base.js"></script>
+    <body>       
+        <script>
+            //Generar codigo qr
+            var qrcode = new QRCode(document.getElementById("qrcode"), {
+	width : 100,
+	height : 100
+});
+            qrcode.makeCode("www.facebook.com");
+        </script>
         
     </body>
 </html>
