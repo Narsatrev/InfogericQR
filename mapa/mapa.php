@@ -29,59 +29,36 @@
           //Centro de Mexico
         center: {lat: 19.40184 , lng: -99.129639},
         zoom: 16
-      });
-        
-      var infoWindow = new google.maps.InfoWindow({map: map});
-        
-    ////////HASTA AQUI VA EN BASE.JS    
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };            
-            ////enviar a servidor datos de localizacion
-            $("#pos_lat").val(pos.lat);
-            $("#pos_long").val(pos.lng);
-            var lat=$("#pos_lat").val();
-            var lng=$("#pos_long").val();
-            
-            var t= new Date();
-            
-            $.ajax({
-                type:"POST",
-                url:"alerta.php",
-                data:{
-                    'lat':lat,
-                    'lng':lng,
-                    'tiempo':t
-                     },
-                cache:false,
-                success:function(data){  
-                    alert(data);
-                }
-               });
-            ////////HASTA AQUI VA EN BASE.JS
-            
-          infoWindow.setPosition(pos);
-          infoWindow.setContent('Tu lugar zi');
-          map.setCenter(pos);
-            
-            
-        }, function() {
-          handleLocationError(true, infoWindow, map.getCenter());
-        });
-      } else {
-        handleLocationError(false, infoWindow, map.getCenter());
+      });        
+      var infoWindow = new google.maps.InfoWindow({map: map});        
+        var geocoder = new google.maps.Geocoder;
+        var infowindow = new google.maps.InfoWindow;
+        geocodeLatLng(geocoder, map, infowindow);
       }
-    }
 
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-      infoWindow.setPosition(pos);
-      infoWindow.setContent(browserHasGeolocation ?
-                            'Error: El sistema de geolocalizacion fallo..' :
-                            'Error: tu browser no soporta geolocalizacion.');
-    }  
+      function geocodeLatLng(geocoder, map, infowindow) {
+                    
+        var url_1=document.URL.split("?")[1].split("&");          
+        
+        var latlng = {lat: parseFloat(url_1[0].split("=")[1]), lng: parseFloat(url_1[1].split("=")[1])};
+        geocoder.geocode({'location': latlng}, function(results, status) {
+          if (status === google.maps.GeocoderStatus.OK) {
+            if (results[1]) {
+              map.setZoom(16);
+              var marker = new google.maps.Marker({
+                position: latlng,
+                map: map
+              });
+              infowindow.setContent(results[1].formatted_address);
+              infowindow.open(map, marker);
+            } else {
+              window.alert('No se encontraron resultados par esas coordenadas.');
+            }
+          } else {
+            window.alert('Sucedió un error en la lectura del mapa: ' + status);
+          }
+        });
+      }
         
         
         

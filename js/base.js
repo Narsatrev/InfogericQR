@@ -31,56 +31,25 @@ function mandarPaginaPaciente(){
 }
 
 function showInfo(data) {
+    console.log("Datos:"+data);
     if(data=="error decoding QR Code"){
         alert("Su imagen no contiene un código QR. Inténtelo de nuevo");
         location.reload();
     }else{
-        if(data.substr(0,3)=='www'||data.substr(0,4)=='http'){
+        if((data.indexOf("http")>-1)||(data.indexOf("www")>-1)){
+            
+//            console.log("si parseo pagina");
             var id=data.split("=")[1];
             
             $("#id_paciente").val(id);
-            console.log($("#id_paciente").val());
+//            console.log($("#id_paciente").val());
             $("#forma_oculta_mistica").attr('action',data);
-                        
-            ////////DESDE AQUI IMPORTADO DE MAPA.JS
-              if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                  var pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                  };            
-                    ////enviar a servidor datos de localizacion
-                    $("#pos_lat").val(pos.lat);
-                    $("#pos_long").val(pos.lng);
-                    var lat=$("#pos_lat").val();
-                    var lng=$("#pos_long").val();
-
-                    var t= new Date();
-
-                    $.ajax({
-                        type:"POST",
-                        url:"mapa/alerta.php",
-                        data:{
-                            'lat':lat,
-                            'lng':lng,
-                            'tiempo':t
-                             },
-                        cache:false,
-                        success:function(data){  
-                            alert(data);
-                            //
-                            $("#forma_oculta_mistica").submit();
-                            //
-                        }
-                       });            
-                });
-              }
-            ////////DESDE AQUI IMPORTADO DE MAPA.JS
             
-                                                                     
-//            window.location.replace(data);
+            $("#forma_oculta_mistica").submit();                                
+            
         }else{
-            alert("El código no es una página web.");    
+            console.log("no parseo pagina");
+//            alert("El código no es una página web.");    
             location.reload();
         }
     }
