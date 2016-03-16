@@ -35,6 +35,7 @@
         <script type="text/javascript" src="frameworks/js-qr/alignpat.js"></script>
         <script type="text/javascript" src="frameworks/js-qr/databr.js"></script>
         <script type="text/javascript" src="frameworks/js-qr-gen/qrcode.js"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
         <meta charset="utf-8"/>
     </head>
 <?php
@@ -57,6 +58,7 @@ require('php/conexion.php');
             <div class="row">
                 <div class="col-sm-2"> Nombre:</div>
                 <div class="col-sm-4"><?php echo $datos_paciente['nombre']?></div>
+                <input type='hidden' id='nombre_pac_mapa' value='<?php echo $datos_paciente['nombre']?>'/>
             </div>
             <div class="row">
                 <div class="col-sm-3"> Edad:</div>
