@@ -60,8 +60,6 @@
         });
       }
         
-        
-        
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvWxQ7F8HVMo-GaDuHLX2SraNiVUifuak	
 &callback=initMap"

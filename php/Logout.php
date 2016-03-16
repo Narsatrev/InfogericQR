@@ -1,7 +1,7 @@
 <?php
     session_start();
-    session_destroy();
-    
+    $_SESSION['es_doc']=0;
+//    session_destroy();    
     header("Location: ../LoginDoctorVista.php");
 
 ?>

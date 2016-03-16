@@ -11,7 +11,7 @@
 <html>
     <head>
         <title>
-            <?php echo $datos_paciente['nombre']?>
+            Datos Paciente
         </title>
         <link rel="stylesheet" href="frameworks/bootstrap-3.3.4-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="frameworks/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css">
@@ -38,7 +38,7 @@
         <meta charset="utf-8"/>
     </head>
 <?php
-$id_paciente=$_POST["id_pat"];
+$id_paciente=$_GET["id_pat"];
 
 require('php/conexion.php');
     $paciente=mysqli_query($conexion,"SELECT * from paciente WHERE id='$id_paciente'");
@@ -80,8 +80,7 @@ require('php/conexion.php');
             "<div class='col-sm-2'>Ultima actualizacion:</div> <div class='col-sm-2'>".$datos_paciente['fecha_actual_medicamentos']."</div></div>".
             "<div class='row'><div class='col-sm-3'>Dirección:</div> <div class='col-sm-5'>".$datos_paciente['direccion']."</div></div>";
         }
-        
-        
+
         $id_contacto=$datos_paciente['contacto'];
 
         $stringx="SELECT * from contacto WHERE id='$id_contacto';";
@@ -107,19 +106,11 @@ require('php/conexion.php');
         
         <button id='button_QR' value="Generar QR">Generar QR</button>
         <div id='qrcode_paciente'></div>
-            </div>
-        <script>
-            
-            $("#button_QR").click(function(){
-                var qrcode = new QRCode(document.getElementById("qrcode_paciente"), {
-                   width : 100,
-                   height : 100
-                });
-                qrcode.makeCode(window.location.href);
-            });
-        </script>
-    
-        
+        </div>
+        <input type='hidden' id='pos_lat'/>
+        <input type='hidden' id='pos_long'/>
+        <script src="js/loc.js"></script>
+
     </body>
 </html>
 

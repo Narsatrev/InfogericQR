@@ -6,8 +6,6 @@
         $esDoc=$_SESSION['es_doc'];
     }
 
-    
-    
 ?>
 
 <!DOCTYPE html>
@@ -48,15 +46,13 @@ if($esDoc!=0){
     }
 }
 else{
-  echo "<form id='forma_id_pat_common' method='post' action='detalles_paciente_com.php'><input type='hidden' value='123' id='arrex'/><input type='hidden' id='id_patient_common' name='id_pat'/></div>";
-    echo "<form id='forma_id_pat_common' method='post' action='detalles_paciente_com.php'><input type='hidden' value='123' id='arrex'/><input type='hidden' id='id_patient_common' name='id_pat'/></div>";
+    header("Location: detalles_paciente_com.php?id_pat=".$_POST['id_paciente']);
 }
 
 require('php/conexion.php');
     $paciente=mysqli_query($conexion,"SELECT * from paciente WHERE id='$id_paciente'");
 
     $n=mysqli_num_rows($paciente);
-echo $n;
     $n=mysqli_num_rows($paciente);
     if(!$n>0){
         echo "El paciente no existe";
@@ -138,52 +134,12 @@ echo $n;
         
         <button id='button_QR' value="Generar QR">Generar QR</button>
         <div id='qrcode_paciente'></div>
-            </div>
-        <script>
+        </div>
+        <input type='hidden' id='pos_lat'/>
+        <input type='hidden' id='pos_long'/>
             
-            ////////DESDE AQUI IMPORTADO DE MAPA.JS
-              if(navigator.geolocation){
-                  
-                navigator.geolocation.getCurrentPosition(function(position) {
-                  var pos={
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                  };            
-                    ////enviar a servidor datos de localizacion
-                    $("#pos_lat").val(pos.lat);
-                    $("#pos_long").val(pos.lng);
-                    var lat=$("#pos_lat").val();
-                    var lng=$("#pos_long").val();
-
-                    var t= new Date();
-                    console.log("obtuve posicion despues de allocate datos");
-                    $.ajax({
-                        type:"POST",
-                        url:"mapa/alerta.php",
-                        data:{
-                            'lat':lat,
-                            'lng':lng,
-                            'tiempo':t
-                             },
-                        cache:false,
-                        success:function(data){  
-                            alert(data);
-                        }
-                       });            
-                });
-              }else{
-                console.log("No se pudo obtener la ubicacion :(. ");
-              }
-            ////////DESDE AQUI IMPORTADO DE MAPA.JS
-            
-            $("#button_QR").click(function(){
-                var qrcode = new QRCode(document.getElementById("qrcode_paciente"), {
-                   width : 100,
-                   height : 100
-                });
-                qrcode.makeCode(window.location.href);
-            });
-            
+        <script src="js/loc.js"></script>
+        <script>            
             $(document).ready(function(){
                 console.log($("#arrex").val());
                 if($("#arrex").val()=='123'){
