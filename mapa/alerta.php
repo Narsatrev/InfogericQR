@@ -17,10 +17,8 @@ $fecha=explode(" ",$tiempo);
 
 $t=$arr_semana[$fecha[0]]." ".$fecha[2]." de ".$arr_mes[$fecha[1]].", a las ".$fecha[4].".";
 
-
-
-$m="La pulsera de su familiar,".$nombre.",fue escaneada en \nla siguiente fecha y hora:\n".$t."\n"; 
-$m.="cerca de la siguiente dirección (la dirección no es exacta):\n".$direccion."\n\n";
+$m="La pulsera de su familiar, ".$nombre.", fue escaneada en la siguiente fecha y hora:\n".$t.".\n"; 
+$m.="Fue cerca de la siguiente dirección (la dirección no es exacta):\n".$direccion."\n\n";
 $m.="Mapa de la ubicación:\n";
 $m.="narsatrev.com/mapa/mapa.php?lat=".$latitud."&long=".$longitud."\n";
 

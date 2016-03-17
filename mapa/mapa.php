@@ -49,7 +49,7 @@
                 position: latlng,
                 map: map
               });
-              infowindow.setContent(results[1].formatted_address);
+              infowindow.setContent(results[0].formatted_address);
               infowindow.open(map, marker);
             } else {
               window.alert('No se encontraron resultados par esas coordenadas.');
