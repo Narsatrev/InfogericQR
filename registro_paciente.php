@@ -434,8 +434,8 @@
     var aux=[]; 
      var marcha,visual,auditivo;
      var aux2=new Date();
-     var medicina="como";
-     var alergia="estas";
+     var medicina="";
+     var alergia="";
      var fecha=aux2.getFullYear()+"-"+(aux2.getMonth()+1)+"-"+aux2.getDate();
         auxiliares.each(function(){
                 aux.push($(this).val());
