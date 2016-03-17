@@ -31,14 +31,24 @@ body {
     color:white;
     font-size: 2vmin;
     text-align: center;
-    position: absolute;
+    position:fixed;
     background:#9c4948;
     bottom:0;
     width:100%;
     height: 8%;
     left:0;
 }
-
+button{
+    background: transparent;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+    padding-top:1.5%;
+    color:white;
+   line-height: 1;
+   border:0 solid;
+   height: 34px;
+}
 a {
 	color: #f0f0f0;
 	text-decoration: none;
@@ -65,7 +75,7 @@ a:hover {
 
 /* grid item */
 .cbp-ig-grid li {
-	width:50%;
+	width:33%;
     height:90vmin;
 	float: left;
 	text-align: center;
@@ -116,6 +126,9 @@ a:hover {
 }
 .doctor:before {
 	content: "\f0f1";
+}
+.usuario:before {
+	content: "\f0c4";
 }
 .plus:before {
 	content: "\e902";
@@ -194,7 +207,7 @@ a:hover {
 
 .cbp-ig-grid li > a:hover .cbp-ig-title:before {
 	background: #fff;
-	margin-top:15%;
+	margin-top:20%;
 }
 
 
