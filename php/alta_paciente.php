@@ -84,9 +84,11 @@ $result = mysqli_query($conexion,"INSERT INTO `paciente`(
 '$tabaco',
 '$drogas',
 
-'$contacto',
 '$medicinas',
 '$alergias',
+
+'$contacto',
+
 '$descripcion_anexo',
 '$fecha');");
 mysqli_close($conexion);
