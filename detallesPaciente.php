@@ -5,7 +5,6 @@
     if(isset($_SESSION['es_doc'])){
         $esDoc=$_SESSION['es_doc'];
     }
-
 ?>
 
 <!DOCTYPE html>

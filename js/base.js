@@ -31,25 +31,18 @@ function mandarPaginaPaciente(){
 }
 
 function showInfo(data) {
-    console.log("Datos:"+data);
     if(data=="error decoding QR Code"){
         alert("Su imagen no contiene un código QR. Inténtelo de nuevo");
         location.reload();
     }else{
         if((data.indexOf("http")>-1)||(data.indexOf("www")>-1)){
-            
-//            console.log("si parseo pagina");
-            var id=data.split("=")[1];
-            
+            var id=data.split("=")[1];            
             $("#id_paciente").val(id);
-//            console.log($("#id_paciente").val());
             $("#forma_oculta_mistica").attr('action',data);
             
             $("#forma_oculta_mistica").submit();                                
             
         }else{
-            console.log("no parseo pagina");
-//            alert("El código no es una página web.");    
             location.reload();
         }
     }

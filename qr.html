@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <head>        
+    <head>
         <meta charset="utf-8">
         <title>Foto QR</title>
         <link rel="stylesheet" href="css/prueba_qr.css" type="text/css" media="screen">
-        <script>
-            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)  ){
-                window.location.replace ("qr.html");
-            }
-        </script>
-        
         <script src="frameworks/jquery-2.1.4.js"></script>
         <script type="text/javascript" src="frameworks/js-qr/grid.js"></script>
         <script type="text/javascript" src="frameworks/js-qr/version.js"></script>
@@ -33,7 +27,7 @@
 
     <body>
         <div class="container">
-            <div id="big_button" class="icon photo"></div>            
+            <div id="big_button" class="icon photo"></div>
             <section class="main-content">                
                 <form id="form_send_qr" method="post" action="php/handle_qr_input.php" enctype="multipart/form-data">
                     <input name="qr_code_img" id="take-picture" type="file" accept="image/*" onchange="upload(this.files[0]); traducirQR(this.files);">
@@ -52,7 +46,7 @@
             </section>
         </div>        
         <div id='qrcode'></div>
-        <div id="barra"> Presione la cámara para escanear el código.<br/>Inicie sesión para info más detallada.</div>
+        <div id="barra"> Presione el sheller para obtener un lobster.<br/>Inicie sesión para info más detallada.</div>
         <script src="js/base.js"></script>
         
     </body>
