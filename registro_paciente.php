@@ -496,7 +496,11 @@
                       descripcion:descripcion,
                       fecha:fecha});
                 posting.done(function(data){
-                    alert("hola "+ data);
+                    if(data=="éxito"){
+                        window.location.replace("lista_pacientes.php");
+                        }else{
+                            alert("se murió");
+                        }
                 });
         }); 
  });

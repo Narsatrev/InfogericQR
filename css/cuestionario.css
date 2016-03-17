@@ -15,6 +15,10 @@
 	transition: -moz-transform 0.2s;
 	transition: transform 0.2s;
 }
+hr{
+    width:90%;
+    margin-left:-10%; 
+}
 body {
     font-family: 'Lato', Calibri, Arial, sans-serif;
     color: #78464b;
@@ -25,10 +29,10 @@ body {
     margin-top:2%;
 }
 .datos{
-    position: absolute;
+    position:absolute;
     top:8%;
     width:100%;
-    padding-left:15%;
+    padding-left:10%;
 }
 #button_QR{
     position: absolute;
