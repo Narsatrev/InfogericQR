@@ -23,7 +23,7 @@ $drogas=$_POST['drogas'];
 
 $contacto=$_POST['contacto'];
 
-$medicinas=$_POST['medicina'];
+$medicinas=$_POST['medicinas'];
 $alergias=$_POST['alergia'];
 
 $descripcion_anexo=$_POST['descripcion'];
@@ -55,7 +55,7 @@ $result = mysqli_query($conexion,"INSERT INTO `paciente`(
 `drogas`,
 
 `medicinas`,
-`alergias,
+`alergias`,
 
 `contacto`,
 
@@ -78,8 +78,8 @@ $result = mysqli_query($conexion,"INSERT INTO `paciente`(
 
 '$diabetes',
 '$hipertension',
-'$alzheimer',
 '$cancer',
+'$alzheimer',
 '$alcohol',
 '$tabaco',
 '$drogas',
@@ -92,7 +92,7 @@ $result = mysqli_query($conexion,"INSERT INTO `paciente`(
 mysqli_close($conexion);
 if($result){
    echo "éxito";
-    }else{
-        echo $result->error;
-    }
+}else{
+    echo $result->error;
+}
 ?>
