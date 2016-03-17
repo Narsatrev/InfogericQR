@@ -89,12 +89,10 @@ require('php/conexion.php');
         if($esDoc==1){
             echo "<div class='col-sm-2'>Peso:</div> <div class='col-sm-2'>".$datos_paciente['peso']."</div></div>".
             "<div class='row'><div class='col-sm-3'>Talla:</div> <div class='col-sm-2'>".$datos_paciente['talla']."</div>".
-            "<div class='col-sm-2'>Tabaquismo: </div> <div class='col-sm-1'>".$datos_paciente['tabaquismo']."</div></div>".
-            "<div class='row'><div class='col-sm-3'>Escolaridad(años):</div> <div class='col-sm-2'>".$datos_paciente['escolaridad']."</div>".
             "<div class='col-sm-2'>Estado civil:</div> <div class='col-sm-2'>".$datos_paciente['estado_civil']."</div></div>".
-            "<div class='row'><div class='col-sm-3'>Numero de Medicamentos:</div> <div class='col-sm-2'>".$datos_paciente['numero_medicamentos']."</div>".
-            "<div class='col-sm-2'>Ultima actualizacion:</div> <div class='col-sm-2'>".$datos_paciente['fecha_actual_medicamentos']."</div></div>".
-            "<div class='row'><div class='col-sm-3'>Dirección:</div> <div class='col-sm-5'>".$datos_paciente['direccion']."</div></div>";
+            "<div class='row'>
+            <div class='col-sm-2'>Ultima actualizacion:</div> <div class='col-sm-2'>".$datos_paciente['fecha']."</div></div>".
+            "<div class='row'><div class='col-sm-3'>Dirección:</div> <div class='col-sm-5'>".$datos_paciente['residencia_actual']."</div></div>";
         }
         
         
@@ -120,15 +118,12 @@ require('php/conexion.php');
             
             $a= "<hr><div class='row'><div class='col-sm-3'>Estado Nutricional:</div> <div class='col-sm-2'>".$datos_paciente['estado_nutricional']."</div>".
             "<div class='col-sm-2'>Seguro social:</div> <div class='col-sm-2'>".$datos_paciente['seguro_social']."</div></div>"."<div class='row'><div class='col-sm-2'>Medicinas:</div></div><br/>".$b.            
-            "<div class='row'><div class='col-sm-3'>Datos medicos:</div><div class='col-sm-5'>".$datos_paciente['datos_medicos']."</div></div>".
             "<div class='row'><div class='col-sm-3'>Anexo:</div><div class='col-sm-5'>".$datos_paciente['descripcion_anexo']."</div></div>"."<img src='http://www.crzelarayan.com.ar/DICOM/jpg/dxs/Torax1.jpg' height='200' width='200'>".
             "<div class='row'><div class='col-sm-2'>Auxiliares:</div><div class='col-sm-5'>".$datos_paciente['auxiliar']."</div></div>";
             echo $a;
             echo "<hr><div class='row'><div class='col-sm-3'>Estado Nutricional:</div> <div class='col-sm-2'>".$datos_paciente['estado_nutricional']."</div>".
             "<div class='col-sm-2'>Seguro social:</div> <div class='col-sm-2'>".$datos_paciente['seguro_social']."</div></div>".
-                            "<div class='row'><div class='col-sm-2'>Medicinas:</div><div class='col-sm-5'>".$datos_paciente['auxiliar']."</div></div>";
-            "<div class='row'><div class='col-sm-3'>Datos medicos:</div><div class='col-sm-5'>".$datos_paciente['datos_medicos']."</div></div>".
-            "<div class='row'><div class='col-sm-3'>Anexo:</div><div class='col-sm-5'>".$datos_paciente['descripcion_anexo']."</div></div>".
+                            "<div class='row'><div class='col-sm-2'>Medicinas:</div><div class='col-sm-5'>".$datos_paciente['auxiliar']."</div></div>"."<div class='row'><div class='col-sm-3'>Anexo:</div><div class='col-sm-5'>".$datos_paciente['descripcion_anexo']."</div></div>".
             "<div class='row'><div class='col-sm-2'>Auxiliares:</div><div class='col-sm-5'>".$datos_paciente['auxiliar']."</div></div>";
             
             
