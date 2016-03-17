@@ -3,7 +3,7 @@
 
 require('php/conexion.php');
 
-    $paciente=mysqli_query($conexion,"SELECT id,nombre,edad,fecha_actual_medicamentos,direccion   from paciente");
+    $paciente=mysqli_query($conexion,"SELECT id,nombre,edad,fecha,residencia_actual from paciente");
     $n=mysqli_num_rows($paciente);
     if(!$n>0){
         echo "No hay hay pacientes que mostrar.";

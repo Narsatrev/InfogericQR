@@ -2,39 +2,97 @@
 $nombre=$_POST['nombre_paciente'];
 $edad=$_POST['edad'];
 $sexo=$_POST['sexo'];
-$tipo_sangre=$_POST['tipo_sangre'];
-$peso=$_POST['peso'];
-$talla=$_POST['talla'];
-$tabaquismo=$_POST['tabaquismo'];
+$seguro_social=$_POST['seguro_social'];
 $escolaridad=$_POST['escolaridad'];
 $estado_civil=$_POST['edo_civil'];
-$numero_medicamentos=$_POST['num_med'];
-$fecha_actual_medicamentos=$_POST['fecha'];
-$direccion=$_POST['direccion'];
+$residencia_actual=$_POST['residencia_actual'];
+
+$peso=$_POST['peso'];
+$talla=$_POST['talla'];
+$tipo_sangre=$_POST['tipo_sangre'];
 $estado_nutricional=$_POST['edo_nutricional'];
-$seguro_social=$_POST['seguro_social'];
 $auxiliar=$_POST['auxiliar'];
-$datos_medicos=$_POST['datos_medicos'];
-$descripcion_anexo=$_POST['descripcion'];
+
+$diabetes=$_POST['diabetes'];
+$hipertension=$_POST['hipertension'];
+$cancer=$_POST['cancer'];
+$alzheimer=$_POST['alzheimer'];
+$alcohol=$_POST['alcohol'];
+$tabaco=$_POST['tabaco'];
+$drogas=$_POST['drogas'];
+
 $contacto=$_POST['contacto'];
+
 $medicinas=$_POST['medicina'];
 $alergias=$_POST['alergia'];
 
+$descripcion_anexo=$_POST['descripcion'];
+$fecha=$_POST['fecha'];
+
 require('conexion.php');
 
-$result = mysqli_query($conexion,"INSERT INTO `paciente`(`nombre`,`edad`,`sexo`,`tipo_sangre`,`peso`,`talla`,`tabaquismo`,`escolaridad`,`estado_civil`,`contacto`,`numero_medicamentos`,`fecha_actual_medicamentos`,`direccion`,`estado_nutricional`,`seguro_social`,`auxiliar`,`datos_medicos`,`descripcion_anexo`,`medicinas`,`alergias`) VALUES ('$nombre','$edad','$sexo','$tipo_sangre','$peso','$talla','$tabaquismo','$escolaridad','$estado_civil','$contacto','$numero_medicamentos','$fecha_actual_medicamentos','$direccion','$estado_nutricional','$seguro_social','$auxiliar','$datos_medicos','$descripcion_anexo','$medicinas','$alergias');");
+$result = mysqli_query($conexion,"INSERT INTO `paciente`(
+`nombre`,
+`edad`,
+`sexo`,
+`seguro_social`,
+`escolaridad`,
+`estado_civil`,
+`residencia_actual`,
+
+`peso`,
+`talla`,
+`tipo_sangre`,
+`auxiliar`,
+`estado_nutricional`,
+
+`diabetes`,
+`hipertension`,
+`cancer`,
+`alzheimer`,
+`alcohol`,
+`tabaco`,
+`drogas`,
+
+`medicinas`,
+`alergias,
+
+`contacto`,
+
+`descripcion_anexo`,
+`fecha`) VALUES (
+
+'$nombre',
+'$edad',
+'$sexo',
+'$seguro_social',
+'$escolaridad',
+'$estado_civil',
+'$residencia_actual',
+
+'$peso',
+'$talla',
+'$tipo_sangre',
+'$auxiliar',
+'$estado_nutricional',
+
+'$diabetes',
+'$hipertension',
+'$alzheimer',
+'$cancer',
+'$alcohol',
+'$tabaco',
+'$drogas',
+
+'$contacto',
+'$medicinas',
+'$alergias',
+'$descripcion_anexo',
+'$fecha');");
+mysqli_close($conexion);
 if($result){
-   $result2 = mysqli_query($conexion,"SELECT * FROM `paciente` WHERE  nombre='$nombre';");
-        if ($result2->num_rows > 0) {
-                    while($row = $result2->fetch_assoc()) { 
-                        echo $row['id'];
-                    }
-        }else{
-            echo "hola";
-        }
-        mysqli_close($conexion);
+   echo "éxito";
     }else{
-        mysqli_close($conexion);
         echo $result->error;
     }
 ?>

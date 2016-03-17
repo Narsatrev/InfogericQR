@@ -36,10 +36,33 @@ body {
     left:30%;
 }
 .margen{
-    position: absolute;
+    z-index: 1000;
     background:#9c4948;
     width: 100%;
     height:8%;
+}
+select {
+   background: transparent;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border:1 solid;
+   border-radius:15;
+   height: 34px;
+    margin-bottom:20%;
+   }
+.flecha{
+    position:fixed;
+    width: 90%;
+    bottom:9%;
+}
+.flechas{
+    position:relative;
+    margin-top: 8vmin;
+    margin-bottom: 10vmin;
+    width: 90%;
+    bottom:9%;
 }
 #margen_top{
 <<<<<<< HEAD
@@ -51,7 +74,8 @@ body {
     top:0%;
 }
 #margen_bot{
-    bottom:0%;
+    position: fixed;
+    bottom:0;
 }
 .next {
 	color: #d47868;
@@ -70,7 +94,7 @@ body {
 	text-decoration: none;
 }
 .home{
-    padding-top:0;
+    padding-top:5;
 	color: #ffffff;
 	text-decoration: none;
 }
@@ -106,7 +130,7 @@ button:hover{
 	content: "\e909";
 }
 .home:before {
-    font-size:1.5em;
+    font-size:1.8em;
 	content: "\f015";
 }
 .checked:before {
