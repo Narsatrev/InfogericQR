@@ -390,7 +390,7 @@
 </html>
 <script>
  $('#registro').submit(function(event){
-     event.preventDefault;
+     event.preventDefault();
      var $forma=$(this),
          nombre_paciente=$forma.find("input[name='nombre_paciente']").val(),
          edad=$forma.find("input[name='edad']").val(),
@@ -434,8 +434,8 @@
     var aux=[]; 
      var marcha,visual,auditivo;
      var aux2=new Date();
-     var medicina="";
-     var alergia="";
+     var medicina="como";
+     var alergia="estas";
      var fecha=aux2.getFullYear()+"-"+(aux2.getMonth()+1)+"-"+aux2.getDate();
         auxiliares.each(function(){
                 aux.push($(this).val());
@@ -464,8 +464,7 @@
      var auxiliar=auditivo+""+visual+""+marcha;
      var posting=$.post("php/alta_contacto.php",{con_emergencia:con_emergencia,tel_primario:tel_primario,tel_opcional:tel_opcional,direccion:direccion_contacto,email:email});
             posting.done(function(data){
-                alert(data);
-                var posting2=$.post("php/alta_paciente.php",        
+                posting=$.post("php/alta_paciente.php",        
             {
                       nombre_paciente:nombre_paciente, 
                       edad: edad,
@@ -489,13 +488,16 @@
                       tabaco:tabaco,
                       drogas:drogas,
                     
-                      medicina:medicina,
+                      medicinas:medicina,
                       alergia:alergia,
                     
                       contacto:data,
                       
                       descripcion:descripcion,
-                      fecha:fecha});      
+                      fecha:fecha});
+                posting.done(function(data){
+                    alert("hola "+ data);
+                });
         }); 
  });
     function nueva_alergia(){
