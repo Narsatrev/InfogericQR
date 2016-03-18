@@ -20,7 +20,7 @@
 	</head>
 	<body>
         <div id="barra_doc_up">
-            <a class="icon logout" href="php/Logout.php"></a>
+            <a class="icono logout" href="php/Logout.php"></a>
         </div>
 		<div class="container">
 			<div class="main">
@@ -41,6 +41,18 @@
 						<a href="lista_pacientes.php">
 							<span class="icon patients"></span>
 							<h3 class="cbp-ig-title">Consultar Paciente</h3>
+						</a>
+                    </li>
+                    <li>
+						<a href="lista_pacientes.php">
+							<span class="icon estadistica"></span>
+							<h3 class="cbp-ig-title">Estadísticas</h3>
+						</a>
+                    </li>
+                    <li>
+						<a href="lista_pacientes.php">
+							<span class="icon perfil"></span>
+							<h3 class="cbp-ig-title">Perfíl</h3>
 						</a>
                     </li>
 				</ul>
