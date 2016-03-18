@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <?php
-
+echo "SHELLER";
 require('php/conexion.php');
 
     $paciente=mysqli_query($conexion,"SELECT id,nombre,edad,fecha,residencia_actual from paciente");
     $n=mysqli_num_rows($paciente);
     if(!$n>0){
-        echo "No hay hay pacientes que mostrar.";
+        echo "No hay pacientes que mostrar.";
     }
 ?>
 <html>
@@ -15,6 +15,7 @@ require('php/conexion.php');
         <title>
             Lista Pacientes        
         </title>
+        <meta charset="utf-8"/>
     </head>
     <body>
         <div id="barra"><h2>Lista de pacientes</h2></div>

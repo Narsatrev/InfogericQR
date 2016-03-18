@@ -6,6 +6,12 @@ $direccion=$_POST['dir'];
 $nombre=$_POST['nombre'];
 $tiempo=$_POST['tiempo'];
 
+$id_contacto=$_POST['tiempo'];
+
+
+//require('../php/conexion.php');
+//$result = mysqli_query($conexion,"SELECT email FROM paciente,contacto WHERE paciente.contacto = contacto.id");
+
 
 $arr_semana=array("Mon"=>"Lunes","Tue"=>"Martes","Wed"=>"Miércoles","Thu"=>"Jueves",
                   "Fri"=>"Viernes","Sat"=>"Sábado","Sun"=>"Sunday");
